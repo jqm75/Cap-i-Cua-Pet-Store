@@ -1,0 +1,151 @@
+---
+const green = '#34A853';
+
+const sparkles = [{ d: 'M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z', fillRule: 'evenodd', clipRule: 'evenodd' }];
+const scissors = [
+  { d: 'M8.128 9.155a3.751 3.751 0 1 1 .713-1.321l1.136.656a.75.75 0 0 1 .222 1.104l-.006.007a.75.75 0 0 1-1.032.157 1.421 1.421 0 0 0-.113-.072l-.92-.531Zm-4.827-3.53a2.25 2.25 0 0 1 3.994 2.063.756.756 0 0 0-.122.23 2.25 2.25 0 0 1-3.872-2.293ZM13.348 8.272a5.073 5.073 0 0 0-3.428 3.57 5.08 5.08 0 0 0-.165 1.202 1.415 1.415 0 0 1-.707 1.201l-.96.554a3.751 3.751 0 1 0 .734 1.309l13.729-7.926a.75.75 0 0 0-.181-1.374l-.803-.215a5.25 5.25 0 0 0-2.894.05l-5.325 1.629Zm-9.223 7.03a2.25 2.25 0 1 0 2.25 3.897 2.25 2.25 0 0 0-2.25-3.897ZM12 12.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z', fillRule: 'evenodd', clipRule: 'evenodd' },
+  { d: 'M16.372 12.615a.75.75 0 0 1 .75 0l5.43 3.135a.75.75 0 0 1-.182 1.374l-.802.215a5.25 5.25 0 0 1-2.894-.051l-5.147-1.574a.75.75 0 0 1-.156-1.367l3-1.732Z' },
+];
+const handRaised = [{ d: 'M10.5 1.875a1.125 1.125 0 0 1 2.25 0v8.219c.517.162 1.02.382 1.5.659V3.375a1.125 1.125 0 0 1 2.25 0v10.937a4.505 4.505 0 0 0-3.25 2.373 8.963 8.963 0 0 1 4-.935A.75.75 0 0 0 18 15v-2.266a3.368 3.368 0 0 1 .988-2.37 1.125 1.125 0 0 1 1.591 1.59 1.118 1.118 0 0 0-.329.79v3.006h-.005a6 6 0 0 1-1.752 4.007l-1.736 1.736a6 6 0 0 1-4.242 1.757H10.5a7.5 7.5 0 0 1-7.5-7.5V6.375a1.125 1.125 0 0 1 2.25 0v5.519c.46-.452.965-.832 1.5-1.141V3.375a1.125 1.125 0 0 1 2.25 0v6.526c.495-.1.997-.151 1.5-.151V1.875Z' }];
+const speakerWave = [
+  { d: 'M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z' },
+  { d: 'M15.932 7.757a.75.75 0 0 1 1.061 0 6 6 0 0 1 0 8.486.75.75 0 0 1-1.06-1.061 4.5 4.5 0 0 0 0-6.364.75.75 0 0 1 0-1.06Z' },
+];
+const heart = [{ d: 'm11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z' }];
+const beaker = [{ d: 'M10.5 3.798v5.02a3 3 0 0 1-.879 2.121l-2.377 2.377a9.845 9.845 0 0 1 5.091 1.013 8.315 8.315 0 0 0 5.713.636l.285-.071-3.954-3.955a3 3 0 0 1-.879-2.121v-5.02a23.614 23.614 0 0 0-3 0Zm4.5.138a.75.75 0 0 0 .093-1.495A24.837 24.837 0 0 0 12 2.25a25.048 25.048 0 0 0-3.093.191A.75.75 0 0 0 9 3.936v4.882a1.5 1.5 0 0 1-.44 1.06l-6.293 6.294c-1.62 1.621-.903 4.475 1.471 4.88 2.686.46 5.447.698 8.262.698 2.816 0 5.576-.239 8.262-.697 2.373-.406 3.092-3.26 1.47-4.881L15.44 9.879A1.5 1.5 0 0 1 15 8.818V3.936Z', fillRule: 'evenodd', clipRule: 'evenodd' }];
+const faceSmile = [{ d: 'M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-2.625 6c-.54 0-.828.419-.936.634a1.96 1.96 0 0 0-.189.866c0 .298.059.605.189.866.108.215.395.634.936.634.54 0 .828-.419.936-.634.13-.26.189-.568.189-.866 0-.298-.059-.605-.189-.866-.108-.215-.395-.634-.936-.634Zm4.314.634c.108-.215.395-.634.936-.634.54 0 .828.419.936.634.13.26.189.568.189.866 0 .298-.059.605-.189.866-.108.215-.395.634-.936.634-.54 0-.828-.419-.936-.634a1.96 1.96 0 0 1-.189-.866c0-.298.059-.605.189-.866Zm2.023 6.828a.75.75 0 1 0-1.06-1.06 3.75 3.75 0 0 1-5.304 0 .75.75 0 0 0-1.06 1.06 5.25 5.25 0 0 0 7.424 0Z', fillRule: 'evenodd', clipRule: 'evenodd' }];
+const cloud = [{ d: 'M4.5 9.75a6 6 0 0 1 11.573-2.226 3.75 3.75 0 0 1 4.133 4.303A4.5 4.5 0 0 1 18 20.25H6.75a5.25 5.25 0 0 1-2.23-10.004 6.072 6.072 0 0 1-.02-.496Z', fillRule: 'evenodd', clipRule: 'evenodd' }];
+const paintBrush = [{ d: 'M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.747 18.747 0 0 0-3.471 2.987 10.04 10.04 0 0 1 4.815 4.815 18.748 18.748 0 0 0 2.987-3.472l3.386-5.079A1.902 1.902 0 0 0 20.599 1.5Zm-8.3 14.025a18.76 18.76 0 0 0 1.896-1.207 8.026 8.026 0 0 0-4.513-4.513A18.75 18.75 0 0 0 8.475 11.7l-.278.5a5.26 5.26 0 0 1 3.601 3.602l.502-.278ZM6.75 13.5A3.75 3.75 0 0 0 3 17.25a1.5 1.5 0 0 1-1.601 1.497.75.75 0 0 0-.7 1.123 5.25 5.25 0 0 0 9.8-2.62 3.75 3.75 0 0 0-3.75-3.75Z', fillRule: 'evenodd', clipRule: 'evenodd' }];
+const gift = [{ d: 'M9.375 3a1.875 1.875 0 0 0 0 3.75h1.875v4.5H3.375A1.875 1.875 0 0 1 1.5 9.375v-.75c0-1.036.84-1.875 1.875-1.875h3.193A3.375 3.375 0 0 1 12 2.753a3.375 3.375 0 0 1 5.432 3.997h3.943c1.035 0 1.875.84 1.875 1.875v.75c0 1.036-.84 1.875-1.875 1.875H12.75v-4.5h1.875a1.875 1.875 0 1 0-1.875-1.875V6.75h-1.5V4.875C11.25 3.839 10.41 3 9.375 3ZM11.25 12.75H3v6.75a2.25 2.25 0 0 0 2.25 2.25h6v-9ZM12.75 12.75v9h6.75a2.25 2.25 0 0 0 2.25-2.25v-6.75h-9Z' }];
+
+const services = [
+  { icon: sparkles, title: 'Baño y secado', description: 'Lavado con productos hipoalergénicos, acondicionador y secado profesional.', color: 'from-brand-teal/20 to-brand-teal/5', border: 'border-brand-teal/20' },
+  { icon: scissors, title: 'Arreglo y corte del pelo', description: 'Corte higiénico y estético adaptado a la raza y necesidades de tu mascota.', color: 'from-brand-yellow/20 to-brand-yellow/5', border: 'border-brand-yellow/20' },
+  { icon: handRaised, title: 'Corte de uñas', description: 'Corte seguro y limado de uñas. Incluye revisión de almohadillas para evitar molestias.', color: 'from-brand-teal/15 to-brand-teal/5', border: 'border-brand-teal/20' },
+  { icon: speakerWave, title: 'Limpieza de oídos', description: 'Limpieza suave y profunda para prevenir infecciones y acumulación de cera.', color: 'from-brand-yellow/20 to-brand-yellow/5', border: 'border-brand-yellow/20' },
+  { icon: heart, title: 'Higiene dental', description: 'Cepillado dental profesional con pasta específica para mascotas. Previene el sarro y el mal aliento.', color: 'from-brand-teal/20 to-brand-teal/5', border: 'border-brand-teal/20' },
+  { icon: beaker, title: 'Vaciado de glándulas', description: 'Vaciado de glándulas anales para prevenir molestias e infecciones.', color: 'from-brand-yellow/20 to-brand-yellow/5', border: 'border-brand-yellow/20' },
+  { icon: faceSmile, title: 'Mascarilla hidratante', description: 'Tratamiento con mascarilla hidratante para nutrir el pelo y la piel en profundidad.', color: 'from-brand-teal/20 to-brand-teal/5', border: 'border-brand-teal/20' },
+  { icon: cloud, title: 'Hidratación nariz y almohadillas', description: 'Hidratación profunda de la nariz y las almohadillas para evitar grietas y sequedad.', color: 'from-brand-yellow/20 to-brand-yellow/5', border: 'border-brand-yellow/20' },
+  { icon: paintBrush, title: 'Cepillado anticaída', description: 'Cepillado anticaída y eliminación de nudos. Deja el pelaje suave, limpio y sin enredos.', color: 'from-brand-teal/20 to-brand-teal/5', border: 'border-brand-teal/20' },
+];
+
+const packs = [
+  { icon: gift, title: 'Pack Baño Semanal', description: 'Baño completo, secado, cepillado y corte de uñas con precio bonificado por tu fidelidad.', color: 'from-brand-yellow/30 to-brand-yellow/10', border: 'border-brand-yellow/30' },
+  { icon: gift, title: 'Pack Cepillado Semanal', description: 'Cepillado anticaída, eliminación de nudos, hidratación de nariz y almohadillas a un precio especial.', color: 'from-brand-yellow/30 to-brand-yellow/10', border: 'border-brand-yellow/30' },
+];
+---
+
+<section id="servicios" class="relative py-20 sm:py-28 overflow-hidden bg-white">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-brand-teal/[0.03] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 bg-brand-yellow/[0.03] rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+  <div class="relative max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+      <span class="inline-block px-4 py-1.5 mb-4 text-sm font-semibold text-brand-teal bg-brand-teal/10 rounded-full">
+        Nuestros servicios
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-brown">
+        Todo lo que tu mascota necesita
+      </h2>
+      <p class="mt-4 text-brand-brown/60 text-lg">
+        En Cap i Cua ofrecemos un trato personalizado y profesional para que tu compañero salga feliz y radiante.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {services.map((service) => (
+        <article
+          class:list={['group relative bg-white rounded-2xl border-2 p-6 sm:p-8 antigravity-hover cursor-default reveal', service.border]}
+        >
+          <div class:list={['absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300', `bg-gradient-to-br ${service.color}`]}></div>
+
+          <div class="relative z-10">
+            <div class="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-7 h-7" style={`color: ${green}`} viewBox="0 0 24 24" fill="currentColor">
+                {service.icon.map((p) => <path d={p.d} fillRule={p.fillRule} clipRule={p.clipRule} />)}
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-brand-brown mb-3">
+              {service.title}
+            </h3>
+            <p class="text-brand-brown/60 leading-relaxed text-sm sm:text-base">
+              {service.description}
+            </p>
+          </div>
+
+          <div class="absolute top-3 right-3 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <svg class="w-full h-full text-brand-teal/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-16 reveal">
+      <div class="text-center mb-10">
+        <span class="inline-block px-4 py-1.5 mb-3 text-sm font-semibold text-brand-yellow bg-brand-yellow/15 rounded-full">
+          Packs de ahorro
+        </span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-brown">
+          Ahorra con nuestros packs semanales
+        </h3>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-3xl mx-auto">
+        {packs.map((pack) => (
+          <article
+            class:list={['group relative bg-white rounded-2xl border-2 p-6 sm:p-8 antigravity-hover cursor-default reveal', pack.border]}
+          >
+            <div class:list={['absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300', `bg-gradient-to-br ${pack.color}`]}></div>
+            <div class="relative z-10">
+              <div class="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-7 h-7" style={`color: ${green}`} viewBox="0 0 24 24" fill="currentColor">
+                  {pack.icon.map((p) => <path d={p.d} fillRule={p.fillRule} clipRule={p.clipRule} />)}
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-brand-brown mb-3">
+                {pack.title}
+              </h3>
+              <p class="text-brand-brown/60 leading-relaxed text-sm sm:text-base">
+                {pack.description}
+              </p>
+              <div class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Precio especial
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-12 text-center reveal">
+      <div class="inline-flex items-start gap-3 px-6 py-4 bg-brand-teal/5 border border-brand-teal/10 rounded-xl text-sm text-brand-brown/70 max-w-2xl">
+        <svg class="w-5 h-5 text-brand-teal shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span><strong class="text-brand-brown">Importante:</strong> Precios a consultar según la raza, tamaño, el tipo de pelo y el estado del manto.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const revealElements = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  );
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+</script>

@@ -1,0 +1,35 @@
+---
+import '../styles/globals.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Cap i Cua Pet Store – Cuidado y estética para tu mascota', description = 'Peluquería canina y felina en Esplugues de Llobregat. Baño, corte, uñas y tratamientos para tu mascota con cariño y profesionalidad.' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="peluquería canina, peluquería felina, grooming, mascotas, Esplugues, Barcelona, Cap i Cua" />
+    <meta name="author" content="Cap i Cua Pet Store" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="font-sans text-brand-brown bg-white antialiased">
+    <slot />
+  </body>
+</html>
