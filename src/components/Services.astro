@@ -42,7 +42,7 @@ const packs = [
 
   <div class="relative max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal">
-      <span class="inline-block rounded-full bg-brand-teal px-4 py-1.5 mb-4 text-sm font-black uppercase tracking-[0.18em] text-white">
+      <span class="section-kicker">
         Nuestros servicios
       </span>
       <h2 class="font-display text-4xl font-black leading-none tracking-[-0.04em] text-brand-ink sm:text-6xl">
@@ -70,7 +70,8 @@ const packs = [
           </div>
 
           <div class="absolute inset-x-0 bottom-0 z-10 p-5 text-white transition-transform duration-300 group-hover:-translate-y-40 group-focus:-translate-y-40 sm:p-6">
-            <h3 class="font-display max-w-[15rem] text-3xl leading-[0.92] tracking-[-0.04em] sm:text-4xl">
+
+            <h3 class="font-display max-w-[15rem] text-3xl leading-[0.92] tracking-[-0.04em] [text-shadow:0_8px_18px_rgba(18,63,61,0.45)] sm:text-4xl">
               {service.title}
             </h3>
           </div>
@@ -86,7 +87,7 @@ const packs = [
 
     <div class="mt-20 reveal">
       <div class="text-center mb-10">
-        <span class="inline-block rounded-full bg-brand-brown px-4 py-1.5 mb-3 text-sm font-black uppercase tracking-[0.18em] text-brand-yellow">
+        <span class="section-kicker">
           Packs de ahorro
         </span>
         <h3 class="font-display text-3xl font-black tracking-[-0.04em] text-brand-ink sm:text-5xl">
@@ -124,13 +125,13 @@ const packs = [
     </div>
 
     <div class="mt-12 text-center reveal">
-      <div class="ticket-cut flex w-full items-center gap-3 border-2 border-brand-pink bg-brand-pink/25 px-6 py-4 text-sm font-semibold text-[#B06267] backdrop-blur">
+      <div class="ticket-cut group flex w-full items-center gap-3 border-2 border-brand-pink bg-brand-pink/25 px-6 py-4 text-sm font-semibold text-[#B06267] backdrop-blur">
         <span
           aria-hidden="true"
-          class="h-7 w-7 shrink-0 bg-[#B06267]"
+          class="h-7 w-7 shrink-0 bg-[#B06267] transition-transform duration-300 ease-out group-hover:scale-125"
           style="mask: url('/images/bullhorn-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/bullhorn-solid-full.svg') center / contain no-repeat;"
         ></span>
-        <span><strong>Importante:</strong> Precios a consultar según la raza, tamaño, el tipo de pelo y el estado del manto.</span>
+        <span class="origin-left transition-transform duration-300 ease-out group-hover:scale-[1.03]"><strong>Importante:</strong> Precios a consultar según la raza, tamaño, el tipo de pelo y el estado del manto.</span>
       </div>
     </div>
   </div>

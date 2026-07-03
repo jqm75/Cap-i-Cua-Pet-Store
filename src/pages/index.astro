@@ -10,23 +10,27 @@ import ContactForm from '../components/ContactForm.astro';
   description="Peluquería canina y felina en Esplugues de Llobregat. Baño, corte profesional, uñas y tratamientos para tu mascota. ¡Reserva tu cita por WhatsApp!"
 >
   <!-- Navigation Bar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-yellow/90 backdrop-blur-md border-b border-brand-teal/20">
+  <nav data-main-nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/35 bg-brand-yellow/55 shadow-[0_16px_40px_rgba(18,63,61,0.12)] backdrop-blur-2xl backdrop-saturate-150 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out">
     <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2.5 group rounded-full px-3 py-1.5">
           <img src="/images/cap_i_cua-h-logo.svg" alt="Cap i Cua" class="h-8 sm:h-10 w-auto max-w-[8rem] sm:max-w-none group-hover:scale-105 transition-transform" />
         </a>
         <div class="flex items-center gap-1 sm:gap-2">
-          <a href="#servicios" class="px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/75 hover:text-brand-teal rounded-full hover:bg-white/35 transition-colors">Servicios</a>
-          <a href="#contacto" class="px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/75 hover:text-brand-teal rounded-full hover:bg-white/35 transition-colors">Contacto</a>
+          <a href="#servicios" class="nav-ripple-link px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/80 hover:text-brand-teal rounded-full transition-colors">Servicios</a>
+          <a href="#contacto" class="nav-ripple-link px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/80 hover:text-brand-teal rounded-full transition-colors">Contacto</a>
           <a
             href="https://wa.me/34688956540"
             target="_blank"
             rel="noopener noreferrer"
-            class="ml-2 inline-flex items-center gap-2 px-4 py-2 bg-brand-teal text-white font-semibold text-base rounded-full shadow-lg shadow-brand-teal/25 transition-all hover:-translate-y-0.5 hover:bg-brand-teal/90"
+            class="button-fill group ml-2 inline-flex items-center gap-2 px-4 py-2 bg-brand-teal text-white font-semibold text-base rounded-full shadow-lg shadow-brand-teal/25 transition-all hover:-translate-y-0.5 hover:text-brand-yellow"
           >
-            <img src="/images/whatsapp-brands-solid-full.svg" alt="" class="h-5 w-5 brightness-0 invert" />
-            Escríbenos
+            <span
+              aria-hidden="true"
+              class="h-5 w-5 bg-current"
+              style="mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat;"
+            ></span>
+            <span>Escríbenos</span>
           </a>
         </div>
       </div>
@@ -38,6 +42,17 @@ import ContactForm from '../components/ContactForm.astro';
     <Services />
     <ContactForm />
   </main>
+
+  <a
+    href="#hero"
+    data-scroll-up
+    aria-label="Volver arriba"
+    class="pointer-events-none fixed bottom-5 right-5 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-brand-brown bg-brand-teal text-white opacity-0 shadow-[6px_6px_0_rgba(81,44,30,0.24)] transition-all duration-500 ease-out hover:-translate-y-1 hover:bg-brand-yellow hover:text-brand-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-yellow sm:bottom-7 sm:right-7 sm:h-14 sm:w-14"
+  >
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
+    </svg>
+  </a>
 
   <!-- Footer -->
   <footer class="bg-brand-brown text-white/80">
@@ -77,9 +92,56 @@ import ContactForm from '../components/ContactForm.astro';
           </ul>
         </div>
       </div>
-      <div class="mt-10 pt-6 border-t border-white/10 text-center text-sm text-white/40">
-        &copy; {new Date().getFullYear()} Cap i Cua Pet Store. Todos los derechos reservados.
+      <div class="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <p class="text-left">
+          &copy; {new Date().getFullYear()} Cap i Cua Pet Store. Todos los derechos reservados.
+        </p>
+        <div class="flex flex-wrap gap-4 text-left sm:justify-end sm:text-right">
+          <a href="/aviso-legal" class="text-brand-teal transition-colors hover:text-white">Aviso Legal</a>
+          <a href="/politica-privacidad" class="text-brand-teal transition-colors hover:text-white">Política de privacidad</a>
+        </div>
       </div>
     </div>
   </footer>
+
+  <script>
+    const nav = document.querySelector('[data-main-nav]');
+    const hero = document.querySelector('#hero');
+    const scrollUpButton = document.querySelector('[data-scroll-up]');
+
+    if (nav && hero) {
+      const glassClasses = ['border-white/35', 'bg-brand-yellow/55', 'shadow-[0_16px_40px_rgba(18,63,61,0.12)]', 'backdrop-blur-2xl', 'backdrop-saturate-150'];
+      const solidClasses = ['border-brand-yellow', 'bg-brand-yellow', 'shadow-[0_10px_28px_rgba(18,63,61,0.14)]', 'backdrop-blur-0'];
+
+      const setSolidNav = (isSolid) => {
+        nav.classList.toggle(glassClasses[0], !isSolid);
+        nav.classList.toggle(glassClasses[1], !isSolid);
+        nav.classList.toggle(glassClasses[2], !isSolid);
+        nav.classList.toggle(glassClasses[3], !isSolid);
+        nav.classList.toggle(glassClasses[4], !isSolid);
+
+        nav.classList.toggle(solidClasses[0], isSolid);
+        nav.classList.toggle(solidClasses[1], isSolid);
+        nav.classList.toggle(solidClasses[2], isSolid);
+        nav.classList.toggle(solidClasses[3], isSolid);
+      };
+
+      const updateNav = () => {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const hasPassedHero = heroBottom <= nav.clientHeight;
+
+        setSolidNav(hasPassedHero);
+
+        if (scrollUpButton) {
+          scrollUpButton.classList.toggle('pointer-events-none', !hasPassedHero);
+          scrollUpButton.classList.toggle('opacity-0', !hasPassedHero);
+          scrollUpButton.classList.toggle('opacity-100', hasPassedHero);
+        }
+      };
+
+      updateNav();
+      window.addEventListener('scroll', updateNav, { passive: true });
+      window.addEventListener('resize', updateNav);
+    }
+  </script>
 </Layout>

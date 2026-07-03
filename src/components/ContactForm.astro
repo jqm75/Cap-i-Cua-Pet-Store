@@ -4,42 +4,46 @@ const instagramUrl = 'https://instagram.com/capicuapetstore';
 const mailtoUrl = 'mailto:hola@capicuapetstore.com';
 ---
 
-<section id="contacto" class="relative overflow-hidden bg-brand-yellow py-20 sm:py-32">
-  <div class="absolute left-[-10rem] top-12 h-80 w-80 rounded-full bg-brand-teal/25 blur-3xl"></div>
-  <div class="absolute bottom-[-8rem] right-[-10rem] h-96 w-96 rounded-full bg-white/25 blur-3xl"></div>
+<section id="contacto" class="relative overflow-hidden bg-brand-yellow py-20 sm:py-28">
+  <div class="absolute inset-0 bg-[url('/images/cap-i-cua_bg-huellas.webp')] bg-cover bg-center opacity-20"></div>
 
   <div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid overflow-hidden rounded-[2.5rem] bg-brand-brown text-white shadow-2xl shadow-brand-ink/25 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:rounded-[4rem] reveal">
-      <div class="p-8 sm:p-12 md:p-16 lg:p-20">
-        <span class="mb-5 inline-flex rounded-full bg-brand-teal px-4 py-1.5 text-xs font-black uppercase tracking-[0.22em] text-white">
-          Contacto
-        </span>
-        <h2 class="font-display mb-10 text-5xl leading-none text-brand-yellow sm:text-6xl">
-          Contacta
-        </h2>
+    <div class="mx-auto mb-16 max-w-3xl text-center reveal">
+      <span class="section-kicker">
+        Contacto
+      </span>
+      <h2 class="font-display text-4xl font-black leading-none tracking-[-0.04em] text-brand-ink sm:text-6xl">
+        Contacta
+      </h2>
+      <p class="mt-5 text-lg font-semibold text-brand-ink/65">
+        Escríbenos por WhatsApp, llámanos o ven a la tienda: estaremos encantados de ayudarte.
+      </p>
+    </div>
 
-        <div class="mb-14 space-y-8">
+    <div class="grid overflow-hidden rounded-[2.5rem] bg-brand-brown text-white shadow-2xl shadow-brand-ink/25 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:rounded-[4rem] reveal">
+      <div class="p-7 sm:p-10 md:p-12 lg:p-16">
+        <div class="mb-10 space-y-6">
           <div class="flex items-center gap-5 sm:gap-6">
-            <img src="/images/location-dot-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all hover:brightness-100 hover:invert-0" alt="" />
-            <p class="text-sm font-black uppercase tracking-tight text-white/75">
+            <img src="/images/location-dot-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all hover:[filter:brightness(0)_saturate(100%)_invert(58%)_sepia(64%)_saturate(415%)_hue-rotate(131deg)_brightness(91%)_contrast(86%)]" alt="" />
+            <p class="text-sm font-semibold uppercase tracking-tight text-white/75">
               Mestre Joan Corrales, 33, Esplugues de Llobregat
             </p>
           </div>
 
           <div class="group flex items-center gap-5 sm:gap-6">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-              <img src="/images/whatsapp-brands-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all group-hover:brightness-100 group-hover:invert-0" alt="" />
+              <img src="/images/whatsapp-brands-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all group-hover:[filter:brightness(0)_saturate(100%)_invert(58%)_sepia(64%)_saturate(415%)_hue-rotate(131deg)_brightness(91%)_contrast(86%)]" alt="" />
             </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-xl font-black tracking-widest text-brand-yellow transition-colors hover:text-brand-teal">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-xl font-semibold tracking-widest text-brand-yellow transition-colors hover:text-brand-teal">
               +34 688 956 540
             </a>
           </div>
 
           <div class="group flex items-center gap-5 sm:gap-6">
             <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src="/images/instagram-brands-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all group-hover:brightness-100 group-hover:invert-0" alt="" />
+              <img src="/images/instagram-brands-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all group-hover:[filter:brightness(0)_saturate(100%)_invert(58%)_sepia(64%)_saturate(415%)_hue-rotate(131deg)_brightness(91%)_contrast(86%)]" alt="" />
             </a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="font-black text-white/50 transition-opacity hover:text-brand-teal hover:opacity-100">
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="font-semibold text-white/50 transition-opacity hover:text-brand-teal hover:opacity-100">
               @capicuapetstore
             </a>
           </div>
@@ -48,22 +52,29 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
         <form action={mailtoUrl} method="POST" enctype="text/plain" class="space-y-4">
           <input
             type="text"
+            name="name"
+            placeholder="Nombre y apellidos"
+            class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+          />
+          <input
+            type="text"
             name="pet"
             placeholder="Tu mascota"
-            class="w-full rounded-3xl border border-white/10 bg-white/5 p-5 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+            class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           />
           <textarea
             name="message"
             placeholder="¿Alguna consulta?"
-            class="h-32 w-full resize-none rounded-3xl border border-white/10 bg-white/5 p-5 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+            class="contact-field h-28 w-full resize-none rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           ></textarea>
-          <button type="submit" class="w-full rounded-3xl bg-brand-teal py-6 font-black uppercase tracking-widest text-white shadow-xl shadow-black/20 transition-all hover:bg-brand-yellow hover:text-brand-ink">
-            Enviar
+          <button type="submit" class="button-fill group inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-teal py-5 font-black uppercase tracking-widest text-white shadow-xl shadow-black/20 transition-all [--button-fill:#fecb2b] hover:-translate-y-1 hover:text-brand-ink">
+            <img src="/images/paper-plane-solid-full.svg" class="h-5 w-5 brightness-0 invert transition-all group-hover:brightness-0 group-hover:invert-0" alt="" />
+            <span>Enviar</span>
           </button>
         </form>
       </div>
 
-      <div class="relative min-h-[620px] overflow-hidden bg-white/10 md:min-h-[680px]">
+      <div class="relative min-h-[480px] overflow-hidden bg-white/10 md:min-h-[560px]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.5!2d2.0858717!3d41.3736269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4990d396ab5bf%3A0x386cb6d44496dbcb!2sCap%20i%20Cua!5e0!3m2!1ses!2ses"
           width="100%"
@@ -79,6 +90,13 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
     </div>
   </div>
 </section>
+
+<style>
+  #contacto .contact-field:focus-visible {
+    outline: 2px dashed #fecb2b;
+    outline-offset: 4px;
+  }
+</style>
 
 <script>
   const revealElements = document.querySelectorAll('#contacto .reveal');

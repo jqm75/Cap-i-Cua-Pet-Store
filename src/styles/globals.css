@@ -48,6 +48,11 @@
   to { opacity: 1; }
 }
 
+@keyframes ken-burns-soft {
+  0%, 100% { transform: scale(1) translate3d(0, 0, 0); }
+  50% { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -67,6 +72,11 @@ body {
   opacity: 0.18;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
+}
+
+.hero-ken-burns {
+  animation: ken-burns-soft 18s ease-in-out infinite;
+  will-change: transform;
 }
 
 ::selection {
@@ -91,6 +101,106 @@ body {
 
 .ticket-cut {
   border-radius: 1.75rem;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #37aaaa;
+  background: transparent;
+}
+
+.section-kicker::before,
+.section-kicker::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 2px;
+  background: currentColor;
+}
+
+.button-fill {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.button-fill::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: var(--button-fill, #512c1e);
+  transform: translate(-100%, -50%) scale(1);
+  transform-origin: center;
+  transition: transform 0.5s ease;
+}
+
+.button-fill:hover::before {
+  transform: translate(0, -50%) scale(1.5);
+}
+
+.button-fill > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-ripple-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.nav-ripple-link::before,
+.nav-ripple-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(transparent, rgba(255, 255, 255, 0.72));
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.4s ease-out;
+}
+
+.nav-ripple-link::before {
+  top: 0;
+  left: 0;
+}
+
+.nav-ripple-link::after {
+  right: 0;
+  bottom: 0;
+}
+
+.nav-ripple-link:hover::before,
+.nav-ripple-link:hover::after {
+  width: 200%;
+  height: 200%;
+  opacity: 0.8;
+}
+
+.nav-ripple-link:hover::before {
+  top: -50%;
+  left: -50%;
+}
+
+.nav-ripple-link:hover::after {
+  right: -50%;
+  bottom: -50%;
 }
 
 :focus-visible {
