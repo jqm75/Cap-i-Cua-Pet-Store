@@ -1,15 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="48" fill="#37aaaa"/>
-  <ellipse cx="50" cy="60" rx="30" ry="25" fill="#512c1e"/>
-  <ellipse cx="50" cy="55" rx="27" ry="22" fill="#7a4a32"/>
-  <ellipse cx="25" cy="35" rx="10" ry="15" fill="#512c1e" transform="rotate(-15 25 35)"/>
-  <ellipse cx="75" cy="35" rx="10" ry="15" fill="#512c1e" transform="rotate(15 75 35)"/>
-  <circle cx="42" cy="52" r="4" fill="white"/>
-  <circle cx="58" cy="52" r="4" fill="white"/>
-  <circle cx="43" cy="52" r="2.5" fill="#512c1e"/>
-  <circle cx="59" cy="52" r="2.5" fill="#512c1e"/>
-  <ellipse cx="50" cy="60" rx="4" ry="2.5" fill="#512c1e"/>
-  <ellipse cx="50" cy="66" rx="3" ry="4" fill="#f09b9b"/>
-  <rect x="38" y="71" width="24" height="5" rx="2.5" fill="#fecb2b"/>
-  <circle cx="50" cy="78" r="3" fill="#fecb2b"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <circle cx="50" cy="50" r="48" style="fill:rgb(55,170,170);"/>
+    <g transform="matrix(1.072581,0,0,1.072581,9.992204,23.853648)">
+        <path d="M54.348,51.844C44.6,51.844 37.251,49.906 32.302,46.027C27.352,42.149 24.877,36.433 24.877,28.88C24.877,21.583 27.174,16.009 31.767,12.155C36.36,8.302 42.993,6.376 51.668,6.376C58.405,6.376 63.52,7.537 67.016,9.859C70.511,12.181 72.259,15.561 72.259,20.001C72.259,23.421 71.264,26.074 69.274,27.962C67.284,29.85 64.502,30.794 60.931,30.794C57.563,30.794 54.934,29.952 53.046,28.268C51.158,26.584 50.214,24.262 50.214,21.302C50.214,20.741 50.264,20.052 50.368,19.236L50.061,19.159C49.295,20.69 48.912,22.477 48.912,24.517C48.912,31.1 52.994,34.392 61.16,34.392C64.63,34.392 67.744,33.831 70.498,32.708L72.489,48.782C67.998,50.823 61.951,51.844 54.348,51.844" style="fill:white;fill-rule:nonzero;"/>
+    </g>
+    <g transform="matrix(1.072581,0,0,1.072581,9.992204,23.853648)">
+        <path d="M20.923,27.665C20.943,24.607 19.101,22.259 16.213,21.251C13.326,20.244 10.171,20.082 7.373,18.848C4.047,17.38 1.438,14.375 0.451,10.876C-0.535,7.377 0.12,3.452 2.19,0.463C2.32,0.273 2.474,0.076 2.697,0.017C2.984,-0.058 3.268,0.123 3.513,0.29C6.991,2.638 11.408,3.551 15.532,2.773C20.08,1.915 24.622,-0.889 29.019,0.557C31.422,1.347 34.02,3.105 35.064,5.54C35.064,5.54 20.923,9.817 20.923,27.665" style="fill:white;fill-rule:nonzero;"/>
+    </g>
 </svg>

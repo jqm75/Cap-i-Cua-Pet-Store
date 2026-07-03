@@ -5,7 +5,7 @@
   --color-brand-teal: #37aaaa;
   --color-brand-brown: #512c1e;
   --color-brand-ink: #123f3d;
-  --color-brand-paper: #fff7d7;
+  --color-brand-paper: #f3efed;
   --color-brand-blue: #99b8df;
   --color-brand-pink: #f8b3b7;
   --color-brand-peach: #f8a780;
@@ -58,6 +58,17 @@ body {
   background: #fecb2b;
 }
 
+.hero-noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
 ::selection {
   background-color: #fecb2b;
   color: #512c1e;
@@ -75,10 +86,11 @@ body {
 .font-display {
   font-family: var(--font-family-display);
   font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .ticket-cut {
-  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  border-radius: 1.75rem;
 }
 
 :focus-visible {
