@@ -1,13 +1,17 @@
 ---
 const whatsappUrl = 'https://wa.me/34688956540';
-const instagramUrl = 'https://instagram.com/capicuapetstore';
 const mailtoUrl = 'mailto:hola@capicuapetstore.com';
 ---
 
-<section id="contacto" class="relative overflow-hidden bg-brand-yellow py-20 sm:py-28">
-  <div class="absolute inset-0 bg-[url('/images/cap-i-cua_bg-huellas.webp')] bg-cover bg-center opacity-20"></div>
+<section id="contacto" class="contact-gradient relative overflow-hidden py-20 sm:py-28">
+  <div class="absolute inset-x-0 top-0 z-10 -translate-y-px text-brand-paper" aria-hidden="true">
+    <svg class="block h-14 w-full sm:h-20" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="currentColor">
+      <path d="M0 0h1440v54c-88 31-181 47-280 47-158 0-258-47-405-47-164 0-258 66-432 66C206 120 98 91 0 58V0Z" />
+    </svg>
+  </div>
+  <div class="absolute inset-0 bg-[url('/images/cap-i-cua_bg-huellas.webp')] bg-[length:120%_auto] bg-center bg-fixed opacity-40"></div>
 
-  <div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal">
       <span class="section-kicker">
         Contacto
@@ -25,8 +29,8 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
         <div class="mb-10 space-y-6">
           <div class="flex items-center gap-5 sm:gap-6">
             <img src="/images/location-dot-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all hover:[filter:brightness(0)_saturate(100%)_invert(58%)_sepia(64%)_saturate(415%)_hue-rotate(131deg)_brightness(91%)_contrast(86%)]" alt="" />
-            <p class="text-sm font-semibold uppercase tracking-tight text-white/75">
-              Mestre Joan Corrales, 33, Esplugues de Llobregat
+            <p class="text-sm font-semibold text-white/75">
+              Mestre Joan Corrales, 33, local. 08950 Esplugues de Llobregat, Barcelona
             </p>
           </div>
 
@@ -38,14 +42,13 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
               +34 688 956 540
             </a>
           </div>
+        </div>
 
-          <div class="group flex items-center gap-5 sm:gap-6">
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <img src="/images/instagram-brands-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all group-hover:[filter:brightness(0)_saturate(100%)_invert(58%)_sepia(64%)_saturate(415%)_hue-rotate(131deg)_brightness(91%)_contrast(86%)]" alt="" />
-            </a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer" class="font-semibold text-white/50 transition-opacity hover:text-brand-teal hover:opacity-100">
-              @capicuapetstore
-            </a>
+        <div class="mb-6 rounded-[1.75rem] border border-white/10 bg-white/10 p-5 text-sm font-semibold text-white/75 sm:text-base">
+          <p class="mb-3 font-black uppercase tracking-[0.16em] text-brand-yellow">Horario de tienda</p>
+          <div class="grid gap-3 sm:grid-cols-2">
+            <p><span class="text-white">Lunes a viernes:</span><br />9:30 h a 13:30 h<br />16:30 h a 20:30 h</p>
+            <p><span class="text-white">Sábados:</span><br />10 h a 14 h</p>
           </div>
         </div>
 
@@ -54,17 +57,34 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
             type="text"
             name="name"
             placeholder="Nombre y apellidos"
+            required
             class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           />
-          <input
-            type="text"
-            name="pet"
-            placeholder="Tu mascota"
-            class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
-          />
+          <div class="grid gap-4 sm:grid-cols-2">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              autocomplete="email"
+              required
+              class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Teléfono"
+              autocomplete="tel"
+              inputmode="tel"
+              pattern="(?=(?:.*[0-9]){9,})[0-9+() -]+"
+              title="Introduce un teléfono válido con al menos 9 números"
+              required
+              class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+            />
+          </div>
           <textarea
             name="message"
             placeholder="¿Alguna consulta?"
+            required
             class="contact-field h-28 w-full resize-none rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           ></textarea>
           <button type="submit" class="button-fill group inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-teal py-5 font-black uppercase tracking-widest text-white shadow-xl shadow-black/20 transition-all [--button-fill:#fecb2b] hover:-translate-y-1 hover:text-brand-ink">
@@ -92,6 +112,18 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
 </section>
 
 <style>
+  .contact-gradient {
+    background-color: hsla(45, 99%, 58%, 1);
+    background-image:
+      radial-gradient(at 50% 79%, hsla(38, 100%, 56%, 1) 0px, transparent 50%),
+      radial-gradient(at 84% 81%, hsla(38, 100%, 66%, 1) 0px, transparent 50%),
+      radial-gradient(at 12% 51%, hsla(38, 71%, 51%, 1) 0px, transparent 50%),
+      radial-gradient(at 72% 32%, hsla(36, 96%, 63%, 1) 0px, transparent 50%),
+      radial-gradient(at 0% 0%, hsla(36, 81%, 56%, 1) 0px, transparent 50%),
+      radial-gradient(at 90% 6%, hsla(33, 72%, 59%, 1) 0px, transparent 50%),
+      radial-gradient(at 8% 88%, hsla(45, 99%, 58%, 1) 0px, transparent 50%);
+  }
+
   #contacto .contact-field:focus-visible {
     outline: 2px dashed #fecb2b;
     outline-offset: 4px;

@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
+import Store from '../components/Store.astro';
+import Follow from '../components/Follow.astro';
 import ContactForm from '../components/ContactForm.astro';
 ---
 
@@ -18,6 +20,7 @@ import ContactForm from '../components/ContactForm.astro';
         </a>
         <div class="flex items-center gap-1 sm:gap-2">
           <a href="#servicios" class="nav-ripple-link px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/80 hover:text-brand-teal rounded-full transition-colors">Servicios</a>
+          <a href="#tienda" class="nav-ripple-link hidden px-3 py-2 text-base font-semibold text-brand-ink/80 transition-colors hover:text-brand-teal sm:inline-flex sm:px-4 rounded-full">Tienda</a>
           <a href="#contacto" class="nav-ripple-link px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/80 hover:text-brand-teal rounded-full transition-colors">Contacto</a>
           <a
             href="https://wa.me/34688956540"
@@ -40,6 +43,8 @@ import ContactForm from '../components/ContactForm.astro';
   <main class="bg-brand-paper">
     <Hero />
     <Services />
+    <Store />
+    <Follow />
     <ContactForm />
   </main>
 
@@ -66,6 +71,7 @@ import ContactForm from '../components/ContactForm.astro';
           <h4 class="font-semibold text-white mb-3">Enlaces</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="#servicios" class="text-brand-teal hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="#tienda" class="text-brand-teal hover:text-white transition-colors">Tienda</a></li>
             <li><a href="#contacto" class="text-brand-teal hover:text-white transition-colors">Contacto</a></li>
           </ul>
         </div>
@@ -110,27 +116,9 @@ import ContactForm from '../components/ContactForm.astro';
     const scrollUpButton = document.querySelector('[data-scroll-up]');
 
     if (nav && hero) {
-      const glassClasses = ['border-white/35', 'bg-brand-yellow/55', 'shadow-[0_16px_40px_rgba(18,63,61,0.12)]', 'backdrop-blur-2xl', 'backdrop-saturate-150'];
-      const solidClasses = ['border-brand-yellow', 'bg-brand-yellow', 'shadow-[0_10px_28px_rgba(18,63,61,0.14)]', 'backdrop-blur-0'];
-
-      const setSolidNav = (isSolid) => {
-        nav.classList.toggle(glassClasses[0], !isSolid);
-        nav.classList.toggle(glassClasses[1], !isSolid);
-        nav.classList.toggle(glassClasses[2], !isSolid);
-        nav.classList.toggle(glassClasses[3], !isSolid);
-        nav.classList.toggle(glassClasses[4], !isSolid);
-
-        nav.classList.toggle(solidClasses[0], isSolid);
-        nav.classList.toggle(solidClasses[1], isSolid);
-        nav.classList.toggle(solidClasses[2], isSolid);
-        nav.classList.toggle(solidClasses[3], isSolid);
-      };
-
       const updateNav = () => {
         const heroBottom = hero.getBoundingClientRect().bottom;
         const hasPassedHero = heroBottom <= nav.clientHeight;
-
-        setSolidNav(hasPassedHero);
 
         if (scrollUpButton) {
           scrollUpButton.classList.toggle('pointer-events-none', !hasPassedHero);
