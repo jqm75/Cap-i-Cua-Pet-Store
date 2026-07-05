@@ -1,19 +1,19 @@
 # Cap i Cua Pet Store
 
-Sitio web de Cap i Cua Pet Store, peluqueria canina y felina en Esplugues de Llobregat. El proyecto esta construido con Astro y Tailwind CSS, con una pagina principal orientada a presentar servicios, packs, contacto y reserva por WhatsApp.
+Sitio web de Cap i Cua Pet Store, peluqueria canina y felina en Esplugues de Llobregat. La web presenta servicios de grooming, bonos mensuales, tienda de alimentacion y accesorios, canales sociales y contacto por WhatsApp.
 
 ## Stack
 
 - Astro 6
 - Tailwind CSS 4
 - Vite 7
-- TypeScript en modo estricto mediante `astro/tsconfigs/strict`
-- npm como gestor de dependencias
+- TypeScript estricto
+- npm
 
 ## Requisitos
 
-- Node.js instalado
-- npm instalado
+- Node.js
+- npm
 
 ## Instalacion
 
@@ -21,7 +21,7 @@ Sitio web de Cap i Cua Pet Store, peluqueria canina y felina en Esplugues de Llo
 npm install
 ```
 
-## Ejecucion local
+## Desarrollo
 
 ```bash
 npm run dev
@@ -29,9 +29,7 @@ npm run dev
 
 Astro mostrara la URL local en la terminal, normalmente `http://localhost:4321`.
 
-Si el servidor ya esta arrancado en otra terminal, no es necesario volver a ejecutar este comando.
-
-## Build de produccion
+## Build
 
 ```bash
 npm run build
@@ -39,79 +37,82 @@ npm run build
 
 El resultado se genera en `dist/`.
 
-## Preview del build
+## Preview
 
 ```bash
 npm run preview
 ```
 
-Este comando sirve para revisar localmente el build generado. Ejecuta antes `npm run build`.
+Ejecuta antes `npm run build` para revisar el build generado.
 
-## Scripts disponibles
+## Scripts
 
-- `npm run dev`: arranca el servidor de desarrollo de Astro.
+- `npm run dev`: arranca el servidor de desarrollo.
 - `npm run build`: genera el build de produccion.
 - `npm run preview`: sirve localmente el build generado.
 
-## Estructura del proyecto
+## Estructura
 
 ```text
 public/
-  favicon.svg
   images/
+    tienda.webp
+    cap_i_cua-h-logo.svg
     capicuapetstore-logo.svg
-    capicuapetstore-logo-footer.svg
-    *.svg
+    servicios/
 src/
   components/
-    Contact.astro
-    ContactForm.astro
     Hero.astro
-    Map.astro
     Services.astro
+    Store.astro
+    Follow.astro
+    ContactForm.astro
+    Map.astro
   layouts/
     Layout.astro
   pages/
     index.astro
+    aviso-legal.astro
+    politica-privacidad.astro
   styles/
     globals.css
-package.json
-tsconfig.json
 ```
 
-## Componentes principales
+## Secciones
 
-- `src/pages/index.astro`: pagina principal y navegacion superior/footer.
-- `src/layouts/Layout.astro`: documento base, metadatos SEO, fuentes y favicon.
-- `src/components/Hero.astro`: hero principal, CTA de WhatsApp y entrada visual de marca.
-- `src/components/Services.astro`: listado de servicios y packs.
-- `src/components/ContactForm.astro`: bloque de contacto, formulario mailto y mapa embebido.
-- `src/components/Contact.astro`: alternativa de tarjetas de contacto.
-- `src/components/Map.astro`: seccion independiente de ubicacion.
-- `src/styles/globals.css`: tokens de color, fuentes, animaciones y utilidades globales.
+- `Hero.astro`: primer impacto visual y CTA principal de WhatsApp.
+- `Services.astro`: servicios de peluqueria y bonos mensuales.
+- `Store.astro`: tienda de alimentacion, snacks, accesorios y productos para perros, gatos, conejos y aves.
+- `Follow.astro`: enlaces a WhatsApp, Instagram, TikTok y resenas de Google.
+- `ContactForm.astro`: formulario, datos de contacto, horarios y mapa embebido.
 
-## Contenido editable
+## Contenido Editable
 
-Los datos de negocio aparecen principalmente en estos archivos:
-
-- Telefono y WhatsApp: `Hero.astro`, `ContactForm.astro`, `Contact.astro`, `index.astro`.
-- Instagram: `ContactForm.astro`, `Contact.astro`, `index.astro`.
+- Telefono y WhatsApp: `Hero.astro`, `Follow.astro`, `ContactForm.astro`, `index.astro`.
+- Redes sociales: `Follow.astro`, footer en `index.astro`.
 - Email del formulario: `ContactForm.astro`.
 - Direccion y horarios: `ContactForm.astro`, `Map.astro`.
-- Servicios y packs: arrays `services` y `packs` en `Services.astro`.
-- Titulos y descripcion SEO: `Layout.astro` e `index.astro`.
+- Servicios y bonos: arrays `services` y `packs` en `Services.astro`.
+- Contenido de tienda: `Store.astro`.
+- Metadatos SEO: `Layout.astro` e `index.astro`.
 
-Antes de cambiar telefono, direccion, redes sociales, horarios o servicios, confirma que el dato nuevo es definitivo.
+Antes de cambiar telefono, direccion, email, redes sociales, horarios o servicios, confirma que el dato nuevo es definitivo.
 
-## Linea de diseno
+## Diseno
 
-La identidad visual esta documentada en `DESIGN.md`. Cualquier cambio de UI debe respetar ese documento y los tokens definidos en `src/styles/globals.css`.
+La linea visual esta documentada en `DESIGN.md`. Los cambios de UI deben respetar los tokens de `src/styles/globals.css` y la identidad actual:
 
-## Convenciones
+- Amarillo de marca como base.
+- Teal como accion y acento.
+- Marron como contraste calido.
+- Fondos paper para descanso visual.
+- Tipografia display contundente.
+- Cards tipo ticket, sombras desplazadas y microinteracciones suaves.
 
-- Mantener componentes Astro simples y legibles.
-- Priorizar cambios pequenos y coherentes con la estructura actual.
-- Usar los tokens `brand-*` en vez de colores arbitrarios.
-- Mantener la web responsive en movil y escritorio.
-- Cuidar accesibilidad basica: textos alternativos utiles, foco visible, enlaces externos con `rel="noopener noreferrer"`.
-- Mantener el idioma principal en espanol.
+## Calidad
+
+- Mantener componentes en Astro salvo necesidad clara de interactividad avanzada.
+- Usar Tailwind y CSS existente antes de introducir dependencias.
+- Mantener responsive en movil y escritorio.
+- Cuidar accesibilidad: foco visible, `alt` utiles, enlaces externos con `rel="noopener noreferrer"`.
+- Verificar cambios importantes con `npm run build`.

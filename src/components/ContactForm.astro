@@ -87,8 +87,22 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
             required
             class="contact-field h-28 w-full resize-none rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           ></textarea>
-          <button type="submit" class="button-fill group inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-teal py-5 font-black uppercase tracking-widest text-white shadow-xl shadow-black/20 transition-all [--button-fill:#fecb2b] hover:-translate-y-1 hover:text-brand-ink">
-            <img src="/images/paper-plane-solid-full.svg" class="h-5 w-5 brightness-0 invert transition-all group-hover:brightness-0 group-hover:invert-0" alt="" />
+          <label class="flex items-start gap-3 text-sm font-semibold leading-relaxed text-white/75">
+            <input
+              type="checkbox"
+              name="privacy_policy"
+              required
+              class="mt-1 h-5 w-5 shrink-0 rounded border-white/30 accent-brand-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-yellow"
+            />
+            <span>
+              He leído y acepto la
+              <a href="/politica-privacidad" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-yellow transition-colors hover:text-brand-teal">
+                Política de Privacidad
+              </a>
+            </span>
+          </label>
+          <button type="submit" class="button-fill group inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-teal py-5 font-semibold uppercase tracking-widest text-white shadow-xl shadow-black/20 transition-all [--button-fill:#fecb2b] hover:-translate-y-1 hover:text-brand-brown">
+            <img src="/images/paper-plane-solid-full.svg" class="h-5 w-5 brightness-0 invert transition-all group-hover:[filter:brightness(0)_saturate(100%)_invert(17%)_sepia(27%)_saturate(1197%)_hue-rotate(337deg)_brightness(95%)_contrast(91%)]" alt="" />
             <span>Enviar</span>
           </button>
         </form>

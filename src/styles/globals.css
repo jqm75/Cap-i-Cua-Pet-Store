@@ -49,8 +49,8 @@
 }
 
 @keyframes ken-burns-soft {
-  0%, 100% { transform: scale(1) translate3d(0, 0, 0); }
-  50% { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+  0%, 100% { background-position: 50% 50%; background-size: 115% auto; }
+  50% { background-position: 48% 47%; background-size: 125% auto; }
 }
 
 html {
@@ -76,7 +76,8 @@ body {
 
 .hero-ken-burns {
   animation: ken-burns-soft 18s ease-in-out infinite;
-  will-change: transform;
+  background-size: 115% auto;
+  will-change: background-position, background-size;
 }
 
 ::selection {
