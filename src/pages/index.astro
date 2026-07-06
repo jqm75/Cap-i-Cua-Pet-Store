@@ -12,25 +12,25 @@ import ContactForm from '../components/ContactForm.astro';
   description="Peluquería canina y felina en Esplugues de Llobregat. Baño, corte profesional, uñas y tratamientos para tu mascota. ¡Reserva tu cita por WhatsApp!"
 >
   <!-- Navigation Bar -->
-  <nav data-main-nav class="fixed top-0 left-0 right-0 z-50 border-b border-white/35 bg-brand-yellow/55 shadow-[0_16px_40px_rgba(18,63,61,0.12)] backdrop-blur-2xl backdrop-saturate-150 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out">
+  <nav data-main-nav aria-label="Navegación principal" class="fixed top-0 left-0 right-0 z-50 border-b border-white/35 bg-brand-yellow/55 shadow-[0_16px_40px_rgba(18,63,61,0.12)] backdrop-blur-2xl backdrop-saturate-150 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out">
     <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
+      <div class="flex flex-col items-center gap-2 py-2 sm:h-16 sm:flex-row sm:justify-between sm:gap-4 sm:py-0">
         <a href="/" class="flex items-center gap-2.5 group rounded-full px-3 py-1.5">
           <img src="/images/cap_i_cua-h-logo.svg" alt="Cap i Cua" class="h-8 sm:h-10 w-auto max-w-[8rem] sm:max-w-none group-hover:scale-105 transition-transform" />
         </a>
-        <div class="flex items-center gap-1 sm:gap-2">
-          <a href="#servicios" class="nav-ripple-link px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/80 hover:text-brand-teal rounded-full transition-colors">Servicios</a>
+        <div class="flex w-full items-center justify-center gap-1 sm:w-auto sm:gap-2">
+          <a href="#servicios" class="nav-ripple-link shrink-0 whitespace-nowrap px-2.5 py-2 text-sm font-semibold text-brand-ink/80 transition-colors hover:text-brand-teal sm:px-4 sm:text-base rounded-full">Servicios</a>
           <a href="#tienda" class="nav-ripple-link hidden px-3 py-2 text-base font-semibold text-brand-ink/80 transition-colors hover:text-brand-teal sm:inline-flex sm:px-4 rounded-full">Tienda</a>
-          <a href="#contacto" class="nav-ripple-link px-3 sm:px-4 py-2 text-base font-semibold text-brand-ink/80 hover:text-brand-teal rounded-full transition-colors">Contacto</a>
+          <a href="#contacto" class="nav-ripple-link shrink-0 whitespace-nowrap px-2.5 py-2 text-sm font-semibold text-brand-ink/80 transition-colors hover:text-brand-teal sm:px-4 sm:text-base rounded-full">Contacto</a>
           <a
             href="https://wa.me/34688956540"
             target="_blank"
             rel="noopener noreferrer"
-            class="button-fill group ml-2 inline-flex items-center gap-2 px-4 py-2 bg-brand-teal text-white font-semibold text-base rounded-full shadow-lg shadow-brand-teal/25 transition-all hover:-translate-y-0.5 hover:text-brand-yellow"
+            class="button-fill group ml-1 inline-flex shrink-0 items-center gap-1.5 rounded-full bg-brand-teal px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-teal/25 transition-all hover:text-brand-yellow sm:ml-2 sm:gap-2 sm:px-4 sm:text-base"
           >
             <span
               aria-hidden="true"
-              class="h-5 w-5 bg-current"
+              class="h-4 w-4 bg-current sm:h-5 sm:w-5"
               style="mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat;"
             ></span>
             <span>Escríbenos</span>
