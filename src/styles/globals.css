@@ -89,9 +89,10 @@ body {
   transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
 
-.antigravity-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 0 rgba(18, 63, 61, 0.12), 0 28px 35px -18px rgba(18, 63, 61, 0.35);
+.antigravity-hover:hover,
+.antigravity-hover:focus-visible {
+  transform: translate(-4px, -6px);
+  box-shadow: 14px 16px 0 rgba(18, 63, 61, 0.14), 18px 22px 34px -18px rgba(18, 63, 61, 0.34);
 }
 
 .font-display {
