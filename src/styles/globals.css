@@ -49,8 +49,13 @@
 }
 
 @keyframes ken-burns-soft {
-  0%, 100% { background-position: 50% 50%; background-size: 115% auto; }
-  50% { background-position: 48% 47%; background-size: 125% auto; }
+  0%, 100% { background-position: 50% 50%; transform: scale(1); }
+  50% { background-position: 48% 47%; transform: scale(1.08); }
+}
+
+@keyframes ken-burns-soft-mobile {
+  0%, 100% { background-position: 50% 50%; transform: rotate(90deg) scale(1.15); }
+  50% { background-position: 48% 47%; transform: rotate(90deg) scale(1.25); }
 }
 
 html {
@@ -76,8 +81,23 @@ body {
 
 .hero-ken-burns {
   animation: ken-burns-soft 18s ease-in-out infinite;
-  background-size: 115% auto;
-  will-change: background-position, background-size;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform-origin: center;
+  will-change: background-position, transform;
+}
+
+@media (max-width: 639px) {
+  .hero-ken-burns {
+    animation-name: ken-burns-soft-mobile;
+    inset: -24%;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-ken-burns {
+    background-size: cover;
+  }
 }
 
 ::selection {
