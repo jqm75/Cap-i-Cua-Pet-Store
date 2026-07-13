@@ -25,9 +25,9 @@ const { t } = Astro.props;
       </p>
     </div>
 
-    <div class="grid overflow-hidden rounded-[2.5rem] bg-brand-brown text-white shadow-2xl shadow-brand-ink/25 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:rounded-[4rem] reveal">
+    <div class="grid overflow-hidden rounded-[1.75rem] bg-brand-brown text-white shadow-2xl shadow-brand-ink/25 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] reveal">
       <div class="p-7 sm:p-10 md:p-12 lg:p-16">
-        <div class="mb-6 rounded-[1.75rem] border border-white/20 bg-white/20 p-5 text-sm font-semibold text-white/75 sm:text-base">
+        <div class="mb-6 rounded-[1.25rem] border border-white/20 bg-white/20 p-5 text-sm font-semibold text-white/75 sm:text-base">
           <p class="mb-3 font-black uppercase text-brand-yellow">{t.hoursTitle}</p>
           <div class="grid gap-3 sm:grid-cols-2">
             <p><span class="text-white">{t.weekdays}</span><br />9:30 h a 13:30 h<br />16:30 h a 20:30 h</p>
@@ -41,7 +41,7 @@ const { t } = Astro.props;
             name="name"
             placeholder={t.name}
             required
-            class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+            class="contact-field w-full rounded-[1.25rem] border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           />
           <div class="grid gap-4 sm:grid-cols-2">
             <input
@@ -50,7 +50,7 @@ const { t } = Astro.props;
               placeholder={t.email}
               autocomplete="email"
               required
-              class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+              class="contact-field w-full rounded-[1.25rem] border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
             />
             <input
               type="tel"
@@ -61,14 +61,14 @@ const { t } = Astro.props;
               pattern="(?=(?:.*[0-9]){9,})[0-9+() -]+"
               title={t.phoneTitle}
               required
-              class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+              class="contact-field w-full rounded-[1.25rem] border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
             />
           </div>
           <textarea
             name="message"
             placeholder={t.message}
             required
-            class="contact-field h-28 w-full resize-none rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
+            class="contact-field h-28 w-full resize-none rounded-[1.25rem] border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           ></textarea>
           <label class="flex items-start gap-3 text-sm font-semibold leading-relaxed text-white/75">
             <input
