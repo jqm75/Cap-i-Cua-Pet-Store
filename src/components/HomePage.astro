@@ -1,0 +1,376 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from './Hero.astro';
+import Services from './Services.astro';
+import Store from './Store.astro';
+import Follow from './Follow.astro';
+import ContactForm from './ContactForm.astro';
+
+const translations = {
+  es: {
+    lang: 'es',
+    ogLocale: 'es_ES',
+    title: 'Cap i Cua Pet Store - Peluquería canina y felina en Esplugues',
+    description: 'Peluquería canina y felina en Esplugues de Llobregat. Baño, corte profesional, uñas y tratamientos para tu mascota. ¡Reserva tu cita por WhatsApp!',
+    navLabel: 'Navegación principal',
+    logoHref: '/',
+    switchHref: '/ca/',
+    switchText: 'CA',
+    switchLabel: 'Ver la web en catalán',
+    menuOpen: 'Abrir menú',
+    menuClose: 'Cerrar menú',
+    nav: { services: 'Servicios', store: 'Tienda', contact: 'Contacto', write: 'Escríbenos' },
+    hero: {
+      titleLines: ['El cuidado de', 'tu mascota'],
+      titleHighlight: 'empieza aquí',
+      text: 'En Cap i Cua cuidamos de forma personalizada de tu mascota, perro o gato, con servicios de grooming, alimentación y accesorios. En Esplugues de Llobregat, con cariño y profesionalidad.',
+      primaryCta: 'Reserva por WhatsApp',
+      secondaryCta: 'Ver servicios',
+      scroll: 'Descubre más',
+    },
+    services: {
+      kicker: 'Nuestros servicios',
+      title: 'Todo lo que tu mascota necesita',
+      intro: 'En Cap i Cua ofrecemos un trato personalizado y profesional para que tu compañero salga feliz y radiante.',
+      items: [
+        ['Baño y secado', 'Lavado con productos hipoalergénicos, acondicionador y secado profesional.'],
+        ['Arreglo y corte del pelo', 'Corte higiénico y estético adaptado a la raza y necesidades de tu mascota.'],
+        ['Corte de uñas', 'Corte seguro y limado de uñas. Incluye revisión de almohadillas para evitar molestias.'],
+        ['Limpieza de oídos', 'Limpieza suave y profunda para prevenir infecciones y acumulación de cera.'],
+        ['Higiene dental', 'Cepillado dental profesional con pasta específica para mascotas. Previene el sarro y el mal aliento.'],
+        ['Vaciado de glándulas', 'Vaciado de glándulas anales para prevenir molestias e infecciones.'],
+        ['Mascarilla hidratante', 'Tratamiento con mascarilla hidratante para nutrir el pelo y la piel en profundidad.'],
+        ['Hidratación nariz y almohadillas', 'Hidratación profunda de la nariz y las almohadillas para evitar grietas y sequedad.'],
+        ['Cepillado anticaída', 'Cepillado anticaída y eliminación de nudos. Deja el pelaje suave, limpio y sin enredos.'],
+      ],
+      packsKicker: 'Packs de ahorro',
+      packsTitle: 'Ahorra con nuestros bonos mensuales',
+      packsIntro: 'Bonos de peluquería canina y felina en Esplugues para mantener el baño, el cepillado y el cuidado básico de tu mascota al día con un precio más cómodo y adaptado a tu mascota.',
+      packs: [
+        ['Pack Baño Mensual', 'Baño completo, secado, cepillado y corte de uñas con precio bonificado por tu fidelidad.'],
+        ['Pack Cepillado Mensual', 'Cepillado anticaída, eliminación de nudos, hidratación de nariz y almohadillas a un precio especial.'],
+      ],
+      askStore: 'Pregunta en tienda',
+      important: 'Importante:',
+      priceNote: 'Precios a consultar según la raza, tamaño, el tipo de pelo y el estado del manto.',
+    },
+    store: {
+      kicker: 'Tienda pet store',
+      title: 'También somos tienda para su día a día',
+      intro: 'Para ellos, en Cap i Cua encontrarás alimentación, snacks, accesorios y productos para cuidar a perros, gatos, conejos y aves en casa, con la misma cercanía que en la peluquería.',
+      imageAlt: 'Interior de la tienda Cap i Cua con productos para mascotas',
+      animals: ['Perros', 'Gatos', 'Conejos', 'Aves'],
+      categories: [
+        ['Alimentación', 'Piensos, comida húmeda y opciones adaptadas a cada etapa y necesidad.'],
+        ['Snacks y premios', 'Mordedores, premios y caprichos para educar, entretener y mimar.'],
+        ['Accesorios', 'Collares, correas, juguetes, camas y básicos para el día a día.'],
+        ['Cuidado e higiene', 'Productos para baño, cepillado, higiene y bienestar en casa.'],
+      ],
+      cta: 'Pregúntanos por WhatsApp',
+    },
+    follow: {
+      kicker: 'Síguenos',
+      title: 'Estamos cerca también online',
+      intro: 'Escríbenos, mira nuestros trabajos y ayúdanos con tu reseña.',
+      whatsappText: 'Respuesta rápida para lo que necesites',
+      instagramText: 'Mira cortes, cambios y momentos de tienda',
+      tiktokText: 'También compartimos vida de peluquería',
+      googleText: 'Tu reseña ayuda a otras familias',
+      review: 'Dejar reseña',
+    },
+    contact: {
+      kicker: 'Contacto',
+      title: 'Contacta',
+      intro: 'Escríbenos por WhatsApp, llámanos o ven a la tienda: estaremos encantados de ayudarte.',
+      hoursTitle: 'Horario de tienda',
+      weekdays: 'Lunes a viernes:',
+      saturday: 'Sábados:',
+      name: 'Nombre y apellidos',
+      email: 'Email',
+      phone: 'Teléfono',
+      phoneTitle: 'Introduce un teléfono válido con al menos 9 números',
+      message: '¿Alguna consulta?',
+      privacy: 'He leído y acepto la',
+      privacyLink: 'Política de Privacidad',
+      privacyHref: '/politica-privacidad',
+      submit: 'Enviar',
+      mapTitle: 'Ubicación de Cap i Cua Pet Store',
+    },
+    footer: {
+      text: 'Cuidado y estética para tu mascota en Esplugues de Llobregat.',
+      contact: 'Contacto',
+      follow: 'Síguenos',
+      rights: 'Todos los derechos reservados.',
+      legal: 'Aviso Legal',
+      legalHref: '/aviso-legal',
+      privacy: 'Política de privacidad',
+      privacyHref: '/politica-privacidad',
+      scrollTop: 'Volver arriba',
+    },
+  },
+  ca: {
+    lang: 'ca',
+    ogLocale: 'ca_ES',
+    title: 'Cap i Cua Pet Store - Perruqueria canina i felina a Esplugues',
+    description: 'Perruqueria canina i felina a Esplugues de Llobregat. Bany, tall professional, ungles i tractaments per a la teva mascota. Reserva cita per WhatsApp!',
+    navLabel: 'Navegació principal',
+    logoHref: '/ca/',
+    switchHref: '/',
+    switchText: 'ES',
+    switchLabel: 'Veure la web en castellà',
+    menuOpen: 'Obrir menú',
+    menuClose: 'Tancar menú',
+    nav: { services: 'Serveis', store: 'Botiga', contact: 'Contacte', write: 'Escriu-nos' },
+    hero: {
+      titleLines: ['La cura de', 'la teva mascota'],
+      titleHighlight: 'comença aquí',
+      text: 'A Cap i Cua cuidem de manera personalitzada la teva mascota, gos o gat, amb serveis de grooming, alimentació i accessoris. A Esplugues de Llobregat, amb estima i professionalitat.',
+      primaryCta: 'Reserva per WhatsApp',
+      secondaryCta: 'Veure serveis',
+      scroll: 'Descobreix més',
+    },
+    services: {
+      kicker: 'Els nostres serveis',
+      title: 'Tot el que la teva mascota necessita',
+      intro: 'A Cap i Cua oferim un tracte personalitzat i professional perquè el teu company surti feliç i radiant.',
+      items: [
+        ['Bany i assecat', 'Rentat amb productes hipoal·lergògens, condicionador i assecat professional.'],
+        ['Arranjament i tall de pèl', 'Tall higiènic i estètic adaptat a la raça i necessitats de la teva mascota.'],
+        ['Tall d’ungles', 'Tall segur i llimat d’ungles. Inclou revisió dels coixinets per evitar molèsties.'],
+        ['Neteja d’orelles', 'Neteja suau i profunda per prevenir infeccions i acumulació de cera.'],
+        ['Higiene dental', 'Raspallat dental professional amb pasta específica per a mascotes. Prevé la tosca i el mal alè.'],
+        ['Buidatge de glàndules', 'Buidatge de glàndules anals per prevenir molèsties i infeccions.'],
+        ['Mascareta hidratant', 'Tractament amb mascareta hidratant per nodrir el pèl i la pell en profunditat.'],
+        ['Hidratació de nas i coixinets', 'Hidratació profunda del nas i els coixinets per evitar esquerdes i sequedat.'],
+        ['Raspallat anticaiguda', 'Raspallat anticaiguda i eliminació de nusos. Deixa el pelatge suau, net i sense embolics.'],
+      ],
+      packsKicker: 'Packs d’estalvi',
+      packsTitle: 'Estalvia amb els nostres bons mensuals',
+      packsIntro: 'Bons de perruqueria canina i felina a Esplugues per mantenir el bany, el raspallat i la cura bàsica de la teva mascota al dia amb un preu més còmode i adaptat.',
+      packs: [
+        ['Pack Bany Mensual', 'Bany complet, assecat, raspallat i tall d’ungles amb preu bonificat per la teva fidelitat.'],
+        ['Pack Raspallat Mensual', 'Raspallat anticaiguda, eliminació de nusos i hidratació de nas i coixinets a un preu especial.'],
+      ],
+      askStore: 'Pregunta a la botiga',
+      important: 'Important:',
+      priceNote: 'Preus a consultar segons la raça, mida, tipus de pèl i estat del mantell.',
+    },
+    store: {
+      kicker: 'Botiga pet store',
+      title: 'També som botiga per al seu dia a dia',
+      intro: 'A Cap i Cua hi trobaràs alimentació, snacks, accessoris i productes per cuidar gossos, gats, conills i ocells a casa, amb la mateixa proximitat que a la perruqueria.',
+      imageAlt: 'Interior de la botiga Cap i Cua amb productes per a mascotes',
+      animals: ['Gossos', 'Gats', 'Conills', 'Ocells'],
+      categories: [
+        ['Alimentació', 'Pinsos, menjar humit i opcions adaptades a cada etapa i necessitat.'],
+        ['Snacks i premis', 'Mossegadors, premis i capricis per educar, entretenir i mimar.'],
+        ['Accessoris', 'Collars, corretges, joguines, llits i bàsics per al dia a dia.'],
+        ['Cura i higiene', 'Productes per al bany, raspallat, higiene i benestar a casa.'],
+      ],
+      cta: 'Pregunta’ns per WhatsApp',
+    },
+    follow: {
+      kicker: 'Segueix-nos',
+      title: 'També som a prop online',
+      intro: 'Escriu-nos, mira els nostres treballs i ajuda’ns amb la teva ressenya.',
+      whatsappText: 'Resposta ràpida per al que necessitis',
+      instagramText: 'Mira talls, canvis i moments de botiga',
+      tiktokText: 'També compartim vida de perruqueria',
+      googleText: 'La teva ressenya ajuda altres famílies',
+      review: 'Deixar ressenya',
+    },
+    contact: {
+      kicker: 'Contacte',
+      title: 'Contacta',
+      intro: 'Escriu-nos per WhatsApp, truca’ns o vine a la botiga: estarem encantats d’ajudar-te.',
+      hoursTitle: 'Horari de botiga',
+      weekdays: 'Dilluns a divendres:',
+      saturday: 'Dissabtes:',
+      name: 'Nom i cognoms',
+      email: 'Email',
+      phone: 'Telèfon',
+      phoneTitle: 'Introdueix un telèfon vàlid amb almenys 9 números',
+      message: 'Alguna consulta?',
+      privacy: 'He llegit i accepto la',
+      privacyLink: 'Política de Privacitat',
+      privacyHref: '/ca/politica-privacitat',
+      submit: 'Enviar',
+      mapTitle: 'Ubicació de Cap i Cua Pet Store',
+    },
+    footer: {
+      text: 'Cura i estètica per a la teva mascota a Esplugues de Llobregat.',
+      contact: 'Contacte',
+      follow: 'Segueix-nos',
+      rights: 'Tots els drets reservats.',
+      legal: 'Avís Legal',
+      legalHref: '/ca/avis-legal',
+      privacy: 'Política de privacitat',
+      privacyHref: '/ca/politica-privacitat',
+      scrollTop: 'Tornar a dalt',
+    },
+  },
+};
+
+type Locale = keyof typeof translations;
+const locale = (Astro.props.locale === 'ca' ? 'ca' : 'es') as Locale;
+const t = translations[locale];
+const whatsappUrl = 'https://wa.me/34688956540';
+---
+
+<Layout title={t.title} description={t.description} lang={t.lang} ogLocale={t.ogLocale} alternateLanguages>
+  <nav data-main-nav aria-label={t.navLabel} class="fixed top-0 left-0 right-0 z-50 border-b border-white/35 bg-brand-yellow shadow-[0_16px_40px_rgba(18,63,61,0.12)] backdrop-blur-none backdrop-saturate-100 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out sm:bg-brand-yellow/55 sm:backdrop-blur-2xl sm:backdrop-saturate-150">
+    <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between gap-4">
+        <div class="flex items-center gap-2 sm:gap-3">
+          <a href={t.logoHref} class="flex items-center gap-2.5 group rounded-full px-3 py-1.5">
+            <img src="/images/cap_i_cua-h-logo.svg" alt="Cap i Cua" class="h-8 sm:h-10 w-auto max-w-[8rem] sm:max-w-none group-hover:scale-105 transition-transform" />
+          </a>
+          <a href={t.switchHref} hreflang={locale === 'ca' ? 'es' : 'ca'} aria-label={t.switchLabel} data-language-switch class="group relative inline-grid h-10 grid-cols-2 items-center overflow-hidden rounded-full bg-white/70 p-1 text-[0.68rem] font-black uppercase tracking-[0.1em] text-brand-ink shadow-lg shadow-brand-teal/25 backdrop-blur transition-colors duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal sm:text-xs">
+            <span aria-hidden="true" class={`absolute left-1 top-1 h-8 w-[calc(50%-0.25rem)] rounded-full bg-brand-teal shadow-[0_6px_14px_rgba(55,170,170,0.35)] transition-transform duration-300 ease-out ${locale === 'ca' ? 'translate-x-full' : 'translate-x-0'}`}></span>
+            <span class={`relative z-10 flex h-8 min-w-9 items-center justify-center rounded-full px-2 transition-colors duration-300 ${locale === 'es' ? 'text-white' : 'text-brand-ink/55 group-hover:text-brand-ink'}`}>ES</span>
+            <span class={`relative z-10 flex h-8 min-w-9 items-center justify-center rounded-full px-2 transition-colors duration-300 ${locale === 'ca' ? 'text-white' : 'text-brand-ink/55 group-hover:text-brand-ink'}`}>CA</span>
+          </a>
+        </div>
+        <button type="button" data-menu-toggle aria-controls="mobile-menu" aria-expanded="false" aria-label={t.menuOpen} data-label-open={t.menuOpen} data-label-close={t.menuClose} class="inline-flex h-11 w-11 items-center justify-center text-brand-ink transition-colors hover:text-brand-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal sm:hidden">
+          <svg class="h-9 w-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path data-menu-line="top" stroke-linecap="round" stroke-width="2.5" d="M4 7h16" />
+            <path data-menu-line="middle" stroke-linecap="round" stroke-width="2.5" d="M4 12h16" />
+            <path data-menu-line="bottom" stroke-linecap="round" stroke-width="2.5" d="M4 17h16" />
+          </svg>
+        </button>
+        <div class="hidden items-center justify-center gap-2 sm:flex sm:w-auto">
+          <a href="#servicios" class="nav-ripple-link shrink-0 whitespace-nowrap px-2.5 py-2 text-sm font-semibold text-brand-ink/80 transition-colors hover:text-brand-teal sm:px-4 sm:text-base rounded-full">{t.nav.services}</a>
+          <a href="#tienda" class="nav-ripple-link px-3 py-2 text-base font-semibold text-brand-ink/80 transition-colors hover:text-brand-teal sm:inline-flex sm:px-4 rounded-full">{t.nav.store}</a>
+          <a href="#contacto" class="nav-ripple-link shrink-0 whitespace-nowrap px-2.5 py-2 text-sm font-semibold text-brand-ink/80 transition-colors hover:text-brand-teal sm:px-4 sm:text-base rounded-full">{t.nav.contact}</a>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="button-fill group ml-1 inline-flex shrink-0 items-center gap-1.5 rounded-full bg-brand-teal px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-teal/25 transition-all hover:text-brand-yellow sm:ml-2 sm:gap-2 sm:px-4 sm:text-base">
+            <span aria-hidden="true" class="h-4 w-4 bg-current sm:h-5 sm:w-5" style="mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat;"></span>
+            <span>{t.nav.write}</span>
+          </a>
+        </div>
+        <div id="mobile-menu" data-mobile-menu class="pointer-events-none absolute left-0 right-0 top-full mt-2 origin-top scale-95 rounded-[1.75rem] border-2 border-white/60 bg-brand-paper/95 p-3 text-brand-ink opacity-0 shadow-[8px_8px_0_rgba(81,44,30,0.18)] backdrop-blur-xl transition-all duration-200 ease-out sm:hidden" hidden>
+          <div class="grid gap-1">
+            <a href="#servicios" class="nav-ripple-link mobile-menu-link rounded-full px-4 py-3 text-base font-semibold text-brand-ink transition-colors hover:text-brand-teal">{t.nav.services}</a>
+            <a href="#tienda" class="nav-ripple-link mobile-menu-link rounded-full px-4 py-3 text-base font-semibold text-brand-ink transition-colors hover:text-brand-teal">{t.nav.store}</a>
+            <a href="#contacto" class="nav-ripple-link mobile-menu-link rounded-full px-4 py-3 text-base font-semibold text-brand-ink transition-colors hover:text-brand-teal">{t.nav.contact}</a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="button-fill mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-brand-teal px-5 py-3 text-base font-semibold text-white shadow-lg shadow-brand-teal/25 transition-all hover:text-brand-yellow">
+              <span aria-hidden="true" class="h-6 w-6 bg-current" style="mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat;"></span>
+              <span>{t.nav.write}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="bg-brand-paper">
+    <Hero t={t.hero} />
+    <Services t={t.services} />
+    <Store t={t.store} />
+    <Follow t={t.follow} />
+    <ContactForm t={t.contact} />
+  </main>
+
+  <a href="#hero" data-scroll-up aria-label={t.footer.scrollTop} class="pointer-events-none fixed bottom-5 right-5 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-teal text-white opacity-0 shadow-[6px_6px_0_rgba(81,44,30,0.24)] transition-all duration-500 ease-out hover:-translate-y-1 hover:bg-brand-yellow hover:text-brand-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-yellow sm:bottom-7 sm:right-7 sm:h-14 sm:w-14">
+    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" /></svg>
+  </a>
+
+  <footer class="bg-[#321b13] text-brand-paper">
+    <div class="max-w-[76rem] mx-auto px-4 py-14 sm:px-6 lg:px-8">
+      <div class="grid gap-10 text-center md:grid-cols-[1.25fr_1fr_1fr] md:items-start md:text-left lg:gap-16">
+        <div class="mx-auto max-w-xs md:mx-0 md:justify-self-start">
+          <img src="/images/capicuapetstore-logo-footer.svg" alt="Cap i Cua" class="mx-auto h-20 w-auto brightness-0 invert md:mx-0" />
+          <p class="mt-3 text-sm leading-relaxed text-brand-paper/70">{t.footer.text}</p>
+        </div>
+        <div class="mx-auto md:mx-0 md:justify-self-center">
+          <h4 class="mb-4 font-semibold text-brand-paper">{t.footer.contact}</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="tel:+34688956540" class="inline-flex items-center justify-center gap-2 text-brand-paper transition-colors hover:text-brand-yellow md:justify-start"><svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" /></svg>+34 688 95 65 40</a></li>
+            <li><a href="mailto:hola@capicuapetstore.com" class="inline-flex items-center justify-center gap-2 text-brand-paper transition-colors hover:text-brand-yellow md:justify-start"><svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0l-7.5-4.615a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>hola@capicuapetstore.com</a></li>
+            <li><a href="https://www.google.com/maps/place/?q=Cap+i+Cua+Pet+Store+Esplugues" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-brand-paper transition-colors hover:text-brand-yellow md:justify-start"><svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s6-5.33 6-11a6 6 0 1 0-12 0c0 5.67 6 11 6 11Z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Z" /></svg>Mestre Joan Corrales, 33, local. 08950 Esplugues de Llobregat, Barcelona</a></li>
+          </ul>
+        </div>
+        <div class="mx-auto flex flex-col items-center md:mx-0 md:items-end md:justify-self-end md:text-right">
+          <h4 class="mb-4 font-semibold text-brand-paper">{t.footer.follow}</h4>
+          <ul class="flex w-full justify-center gap-5 md:w-auto md:justify-end">
+            <li><a href="https://instagram.com/capicuapetstore" target="_blank" rel="noopener noreferrer" class="inline-flex text-brand-paper transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:text-brand-yellow" aria-label="Instagram"><span aria-hidden="true" class="h-9 w-9 bg-current" style="mask: url('/images/instagram-brands-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/instagram-brands-solid-full.svg') center / contain no-repeat;"></span></a></li>
+            <li><a href="https://www.tiktok.com/@capicuapetstore" target="_blank" rel="noopener noreferrer" class="inline-flex text-brand-paper transition-all duration-300 hover:-translate-y-1 hover:scale-110 hover:text-brand-yellow" aria-label="TikTok"><svg class="h-9 w-9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82a4.7 4.7 0 0 1-1.16-3.08h-3.18v12.52a2.66 2.66 0 1 1-1.82-2.52V9.5a5.86 5.86 0 1 0 5 5.8V8.95a7.82 7.82 0 0 0 4.58 1.47V7.24a4.67 4.67 0 0 1-3.42-1.42Z" /></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="bg-[#1f110c]"><div class="mx-auto flex max-w-[76rem] flex-col gap-4 px-4 py-6 text-sm text-brand-paper/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><p class="text-left">&copy; {new Date().getFullYear()} Cap i Cua Pet Store. {t.footer.rights}</p><div class="flex flex-wrap gap-4 text-left sm:justify-end sm:text-right"><a href={t.footer.legalHref} target="_blank" rel="noopener noreferrer" class="text-brand-paper transition-colors hover:text-brand-yellow">{t.footer.legal}</a><a href={t.footer.privacyHref} target="_blank" rel="noopener noreferrer" class="text-brand-paper transition-colors hover:text-brand-yellow">{t.footer.privacy}</a></div></div></div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('[data-main-nav]');
+    const hero = document.querySelector('#hero');
+    const scrollUpButton = document.querySelector('[data-scroll-up]');
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const mobileMenu = document.querySelector('[data-mobile-menu]');
+    const languageSwitch = document.querySelector('[data-language-switch]');
+
+    const savedScrollY = window.sessionStorage.getItem('language-switch-scroll-y');
+    if (savedScrollY) {
+      window.sessionStorage.removeItem('language-switch-scroll-y');
+      window.requestAnimationFrame(() => {
+        window.scrollTo({ top: Number(savedScrollY), behavior: 'instant' });
+      });
+    }
+
+    languageSwitch?.addEventListener('click', () => {
+      window.sessionStorage.setItem('language-switch-scroll-y', String(window.scrollY));
+    });
+
+    if (menuToggle && mobileMenu) {
+      const setMenuOpen = (isOpen) => {
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? menuToggle.dataset.labelClose : menuToggle.dataset.labelOpen);
+        mobileMenu.hidden = false;
+        mobileMenu.classList.toggle('pointer-events-none', !isOpen);
+        mobileMenu.classList.toggle('scale-95', !isOpen);
+        mobileMenu.classList.toggle('opacity-0', !isOpen);
+        mobileMenu.classList.toggle('scale-100', isOpen);
+        mobileMenu.classList.toggle('opacity-100', isOpen);
+        if (!isOpen) {
+          window.setTimeout(() => {
+            if (menuToggle.getAttribute('aria-expanded') === 'false') mobileMenu.hidden = true;
+          }, 200);
+        }
+      };
+      menuToggle.addEventListener('click', () => setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true'));
+      mobileMenu.addEventListener('click', (event) => {
+        if (event.target instanceof Element && event.target.closest('a')) setMenuOpen(false);
+      });
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMenuOpen(false);
+      });
+      window.addEventListener('resize', () => {
+        if (window.matchMedia('(min-width: 640px)').matches) setMenuOpen(false);
+      });
+    }
+
+    if (nav && hero) {
+      const updateNav = () => {
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const hasPassedHero = heroBottom <= nav.clientHeight;
+        if (scrollUpButton) {
+          scrollUpButton.classList.toggle('pointer-events-none', !hasPassedHero);
+          scrollUpButton.classList.toggle('opacity-0', !hasPassedHero);
+          scrollUpButton.classList.toggle('opacity-100', hasPassedHero);
+        }
+      };
+      updateNav();
+      window.addEventListener('scroll', updateNav, { passive: true });
+      window.addEventListener('resize', updateNav);
+    }
+  </script>
+
+  <style>
+    [data-menu-line] { transform-box: fill-box; transform-origin: center; transition: transform 220ms ease, opacity 160ms ease; }
+    [data-menu-toggle][aria-expanded='true'] [data-menu-line='top'] { transform: translateY(5px) rotate(45deg); }
+    [data-menu-toggle][aria-expanded='true'] [data-menu-line='middle'] { opacity: 0; transform: scaleX(0.35); }
+    [data-menu-toggle][aria-expanded='true'] [data-menu-line='bottom'] { transform: translateY(-5px) rotate(-45deg); }
+    .mobile-menu-link::before, .mobile-menu-link::after { background: radial-gradient(transparent, rgba(255, 255, 255, 0.94)); }
+    .mobile-menu-link:hover::before, .mobile-menu-link:hover::after { opacity: 0.96; }
+  </style>
+</Layout>

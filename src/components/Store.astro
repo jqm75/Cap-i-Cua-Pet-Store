@@ -1,26 +1,10 @@
 ---
 const whatsappUrl = 'https://wa.me/34688956540';
+const { t } = Astro.props;
 
-const categories = [
-  {
-    title: 'Alimentación',
-    description: 'Piensos, comida húmeda y opciones adaptadas a cada etapa y necesidad.',
-  },
-  {
-    title: 'Snacks y premios',
-    description: 'Mordedores, premios y caprichos para educar, entretener y mimar.',
-  },
-  {
-    title: 'Accesorios',
-    description: 'Collares, correas, juguetes, camas y básicos para el día a día.',
-  },
-  {
-    title: 'Cuidado e higiene',
-    description: 'Productos para baño, cepillado, higiene y bienestar en casa.',
-  },
-];
+const categories = t.categories.map(([title, description]) => ({ title, description }));
 
-const animals = ['Perros', 'Gatos', 'Conejos', 'Aves'];
+const animals = t.animals;
 ---
 
 <section id="tienda" class="store-mesh relative overflow-hidden py-20 text-brand-ink sm:py-28">
@@ -39,18 +23,18 @@ const animals = ['Perros', 'Gatos', 'Conejos', 'Aves'];
   <div class="relative z-20 max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-14 max-w-3xl text-center reveal">
       <span class="section-kicker store-kicker">
-        Tienda pet store
+        {t.kicker}
       </span>
       <h2 class="font-display text-4xl leading-none tracking-[-0.04em] text-brand-ink sm:text-6xl">
-        También somos tienda para su día a día
+        {t.title}
       </h2>
       <p class="mt-5 text-lg font-semibold leading-relaxed text-brand-ink/80">
-        Para ellos, en Cap i Cua encontrarás alimentación, snacks, accesorios y productos para cuidar a perros, gatos, conejos y aves en casa, con la misma cercanía que en la peluquería.
+        {t.intro}
       </p>
       <div class="mt-8 aspect-[16/9] w-full overflow-hidden rounded-[2rem] border-2 border-brand-paper shadow-[10px_10px_0_rgba(18,63,61,0.16)]">
         <img
           src="/images/tienda.webp"
-          alt="Interior de la tienda Cap i Cua con productos para mascotas"
+          alt={t.imageAlt}
           loading="lazy"
           class="h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-110"
         />
@@ -90,7 +74,7 @@ const animals = ['Perros', 'Gatos', 'Conejos', 'Aves'];
           class="h-5 w-5 bg-current"
           style="mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/whatsapp-brands-solid-full.svg') center / contain no-repeat;"
         ></span>
-        <span>Pregúntanos por WhatsApp</span>
+        <span>{t.cta}</span>
       </a>
     </div>
   </div>

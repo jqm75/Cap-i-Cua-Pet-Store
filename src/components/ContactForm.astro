@@ -1,6 +1,7 @@
 ---
 const whatsappUrl = 'https://wa.me/34688956540';
 const mailtoUrl = 'mailto:hola@capicuapetstore.com';
+const { t } = Astro.props;
 ---
 
 <section id="contacto" class="contact-gradient relative overflow-hidden py-20 sm:py-28">
@@ -14,13 +15,13 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
   <div class="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal">
       <span class="section-kicker">
-        Contacto
+        {t.kicker}
       </span>
       <h2 class="font-display text-4xl font-black leading-none tracking-[-0.04em] text-brand-ink sm:text-6xl">
-        Contacta
+        {t.title}
       </h2>
       <p class="mt-5 text-lg font-semibold text-brand-ink/65">
-        Escríbenos por WhatsApp, llámanos o ven a la tienda: estaremos encantados de ayudarte.
+        {t.intro}
       </p>
     </div>
 
@@ -45,10 +46,10 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
         </div>
 
         <div class="mb-6 rounded-[1.75rem] border border-white/10 bg-white/10 p-5 text-sm font-semibold text-white/75 sm:text-base">
-          <p class="mb-3 font-black uppercase tracking-[0.16em] text-brand-yellow">Horario de tienda</p>
+          <p class="mb-3 font-black uppercase tracking-[0.16em] text-brand-yellow">{t.hoursTitle}</p>
           <div class="grid gap-3 sm:grid-cols-2">
-            <p><span class="text-white">Lunes a viernes:</span><br />9:30 h a 13:30 h<br />16:30 h a 20:30 h</p>
-            <p><span class="text-white">Sábados:</span><br />10 h a 14 h</p>
+            <p><span class="text-white">{t.weekdays}</span><br />9:30 h a 13:30 h<br />16:30 h a 20:30 h</p>
+            <p><span class="text-white">{t.saturday}</span><br />10 h a 14 h</p>
           </div>
         </div>
 
@@ -56,7 +57,7 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
           <input
             type="text"
             name="name"
-            placeholder="Nombre y apellidos"
+            placeholder={t.name}
             required
             class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           />
@@ -64,7 +65,7 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t.email}
               autocomplete="email"
               required
               class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
@@ -72,18 +73,18 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
             <input
               type="tel"
               name="phone"
-              placeholder="Teléfono"
+              placeholder={t.phone}
               autocomplete="tel"
               inputmode="tel"
               pattern="(?=(?:.*[0-9]){9,})[0-9+() -]+"
-              title="Introduce un teléfono válido con al menos 9 números"
+              title={t.phoneTitle}
               required
               class="contact-field w-full rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
             />
           </div>
           <textarea
             name="message"
-            placeholder="¿Alguna consulta?"
+            placeholder={t.message}
             required
             class="contact-field h-28 w-full resize-none rounded-3xl border border-white/10 bg-white/5 p-4 text-white outline-none transition-all placeholder:text-white/40 focus:bg-white focus:text-brand-ink focus:placeholder:text-brand-ink/40"
           ></textarea>
@@ -95,15 +96,15 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
               class="mt-1 h-5 w-5 shrink-0 rounded border-white/30 accent-brand-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-yellow"
             />
             <span>
-              He leído y acepto la
-              <a href="/politica-privacidad" target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-yellow transition-colors hover:text-brand-teal">
-                Política de Privacidad
+              {t.privacy}
+              <a href={t.privacyHref} target="_blank" rel="noopener noreferrer" class="font-semibold text-brand-yellow transition-colors hover:text-brand-teal">
+                {t.privacyLink}
               </a>
             </span>
           </label>
           <button type="submit" class="button-fill group inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-teal py-5 font-semibold uppercase tracking-widest text-white shadow-xl shadow-black/20 transition-all [--button-fill:#fecb2b] hover:-translate-y-1 hover:text-brand-brown">
             <img src="/images/paper-plane-solid-full.svg" class="h-5 w-5 brightness-0 invert transition-all group-hover:[filter:brightness(0)_saturate(100%)_invert(17%)_sepia(27%)_saturate(1197%)_hue-rotate(337deg)_brightness(95%)_contrast(91%)]" alt="" />
-            <span>Enviar</span>
+            <span>{t.submit}</span>
           </button>
         </form>
       </div>
@@ -117,7 +118,7 @@ const mailtoUrl = 'mailto:hola@capicuapetstore.com';
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Ubicación de Cap i Cua Pet Store"
+          title={t.mapTitle}
           class="grayscale opacity-70 transition-all duration-1000 hover:grayscale-0 hover:opacity-100"
         ></iframe>
       </div>

@@ -1,5 +1,6 @@
 ---
 const whatsappUrl = 'https://wa.me/34688956540';
+const { t } = Astro.props;
 ---
 
 <section id="hero" class="hero-noise relative min-h-[min(760px,92svh)] overflow-hidden rounded-b-[2.5rem] bg-brand-yellow text-brand-ink sm:min-h-[min(820px,92svh)] sm:rounded-b-[4rem]">
@@ -17,13 +18,13 @@ const whatsappUrl = 'https://wa.me/34688956540';
     <div class="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
       <div class="animate-fade-in-up">
         <h1 class="font-display mt-12 max-w-5xl text-[clamp(2.25rem,6vw,5.2rem)] uppercase leading-[0.9] tracking-[-0.045em]">
-          <span class="block whitespace-nowrap">El cuidado de</span>
-          <span class="block whitespace-nowrap">tu mascota</span>
-          <span class="inline-block text-white drop-shadow-[0_10px_0_rgba(55,170,170,0.45)]">empieza aquí</span>
+          <span class="block whitespace-nowrap">{t.titleLines[0]}</span>
+          <span class="block whitespace-nowrap">{t.titleLines[1]}</span>
+          <span class="inline-block text-white drop-shadow-[0_10px_0_rgba(55,170,170,0.45)]">{t.titleHighlight}</span>
         </h1>
 
         <p class="mt-8 max-w-xl text-base font-semibold leading-relaxed text-brand-ink/70 sm:text-lg">
-          En Cap i Cua cuidamos de forma personalizada de tu mascota, perro o gato, con servicios de grooming, alimentación y accesorios. En Esplugues de Llobregat, con cariño y profesionalidad.
+          {t.text}
         </p>
 
         <div class="mt-9 flex flex-col gap-4 pb-8 sm:flex-row">
@@ -37,13 +38,13 @@ const whatsappUrl = 'https://wa.me/34688956540';
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
               <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.523 3.656 1.423 5.157L2 22l5.006-1.389A9.956 9.956 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.62 0-3.12-.506-4.347-1.363l-.311-.196-2.97.824.796-2.896-.204-.324A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
             </svg>
-            <span>Reserva por WhatsApp</span>
+            <span>{t.primaryCta}</span>
           </a>
           <a
             href="#servicios"
             class="button-fill inline-flex items-center justify-center rounded-full border-2 border-brand-teal/55 bg-brand-paper px-8 py-4 text-lg font-semibold text-brand-teal transition-all duration-300 [--button-fill:#37aaaa] hover:-translate-y-1 hover:border-brand-teal hover:text-white"
           >
-            <span>Ver servicios</span>
+            <span>{t.secondaryCta}</span>
           </a>
         </div>
 
@@ -57,11 +58,44 @@ const whatsappUrl = 'https://wa.me/34688956540';
   </div>
 
   <a href="#servicios" class="absolute bottom-6 left-1/2 z-20 -translate-x-1/2 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.35em] text-white drop-shadow-[0_3px_10px_rgba(18,63,61,0.75)] transition-colors hover:text-brand-yellow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal">
-    <span class="block animate-float">
-      Descubre más
+    <span class="hero-scroll-bounce block">
+      {t.scroll}
       <svg class="mx-auto mt-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7"/>
       </svg>
     </span>
   </a>
 </section>
+
+<style>
+  .hero-scroll-bounce {
+    animation: hero-scroll-bounce 1.55s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes hero-scroll-bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+
+    18% {
+      transform: translateY(0);
+    }
+
+    42% {
+      transform: translateY(15px);
+    }
+
+    56% {
+      transform: translateY(-6px);
+    }
+
+    70% {
+      transform: translateY(4px);
+    }
+
+    82% {
+      transform: translateY(-2px);
+    }
+  }
+</style>

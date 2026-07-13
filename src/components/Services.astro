@@ -1,5 +1,6 @@
 ---
 const green = '#37aaaa';
+const { t } = Astro.props;
 
 const sparkles = [{ d: 'M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z', 'fill-rule': 'evenodd', 'clip-rule': 'evenodd' }];
 const scissors = [
@@ -19,20 +20,20 @@ const paintBrush = [{ d: 'M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.7
 const gift = [{ d: 'M9.375 3a1.875 1.875 0 0 0 0 3.75h1.875v4.5H3.375A1.875 1.875 0 0 1 1.5 9.375v-.75c0-1.036.84-1.875 1.875-1.875h3.193A3.375 3.375 0 0 1 12 2.753a3.375 3.375 0 0 1 5.432 3.997h3.943c1.035 0 1.875.84 1.875 1.875v.75c0 1.036-.84 1.875-1.875 1.875H12.75v-4.5h1.875a1.875 1.875 0 1 0-1.875-1.875V6.75h-1.5V4.875C11.25 3.839 10.41 3 9.375 3ZM11.25 12.75H3v6.75a2.25 2.25 0 0 0 2.25 2.25h6v-9ZM12.75 12.75v9h6.75a2.25 2.25 0 0 0 2.25-2.25v-6.75h-9Z' }];
 
 const services = [
-  { icon: sparkles, title: 'Baño y secado', description: 'Lavado con productos hipoalergénicos, acondicionador y secado profesional.', image: '/images/servicios/lavado-secado.png', descriptionBg: 'bg-brand-peach' },
-  { icon: scissors, title: 'Arreglo y corte del pelo', description: 'Corte higiénico y estético adaptado a la raza y necesidades de tu mascota.', image: '/images/servicios/arreglo-corte-pelo.png', descriptionBg: 'bg-brand-blue' },
-  { icon: handRaised, title: 'Corte de uñas', description: 'Corte seguro y limado de uñas. Incluye revisión de almohadillas para evitar molestias.', image: '/images/servicios/paticura.png', descriptionBg: 'bg-brand-pink' },
-  { icon: speakerWave, title: 'Limpieza de oídos', description: 'Limpieza suave y profunda para prevenir infecciones y acumulación de cera.', image: '/images/servicios/limpieza-oídos.png', descriptionBg: 'bg-brand-blue' },
-  { icon: heart, title: 'Higiene dental', description: 'Cepillado dental profesional con pasta específica para mascotas. Previene el sarro y el mal aliento.', image: '/images/servicios/higiene-dental.png', descriptionBg: 'bg-brand-peach' },
-  { icon: beaker, title: 'Vaciado de glándulas', description: 'Vaciado de glándulas anales para prevenir molestias e infecciones.', image: '/images/servicios/vaciado-de-glándulas.png', descriptionBg: 'bg-brand-pink' },
-  { icon: faceSmile, title: 'Mascarilla hidratante', description: 'Tratamiento con mascarilla hidratante para nutrir el pelo y la piel en profundidad.', image: '/images/servicios/mascarilla-hidratante.png', descriptionBg: 'bg-brand-peach' },
-  { icon: cloud, title: 'Hidratación nariz y almohadillas', description: 'Hidratación profunda de la nariz y las almohadillas para evitar grietas y sequedad.', image: '/images/servicios/hidratación-nariz-almohadillas.png', descriptionBg: 'bg-brand-blue' },
-  { icon: paintBrush, title: 'Cepillado anticaída', description: 'Cepillado anticaída y eliminación de nudos. Deja el pelaje suave, limpio y sin enredos.', image: '/images/servicios/cepillado.png', descriptionBg: 'bg-brand-pink' },
+  { icon: sparkles, title: t.items[0][0], description: t.items[0][1], image: '/images/servicios/lavado-secado.png', descriptionBg: 'bg-brand-peach' },
+  { icon: scissors, title: t.items[1][0], description: t.items[1][1], image: '/images/servicios/arreglo-corte-pelo.png', descriptionBg: 'bg-brand-blue' },
+  { icon: handRaised, title: t.items[2][0], description: t.items[2][1], image: '/images/servicios/paticura.png', descriptionBg: 'bg-brand-pink' },
+  { icon: speakerWave, title: t.items[3][0], description: t.items[3][1], image: '/images/servicios/limpieza-oídos.png', descriptionBg: 'bg-brand-blue' },
+  { icon: heart, title: t.items[4][0], description: t.items[4][1], image: '/images/servicios/higiene-dental.png', descriptionBg: 'bg-brand-peach' },
+  { icon: beaker, title: t.items[5][0], description: t.items[5][1], image: '/images/servicios/vaciado-de-glándulas.png', descriptionBg: 'bg-brand-pink' },
+  { icon: faceSmile, title: t.items[6][0], description: t.items[6][1], image: '/images/servicios/mascarilla-hidratante.png', descriptionBg: 'bg-brand-peach' },
+  { icon: cloud, title: t.items[7][0], description: t.items[7][1], image: '/images/servicios/hidratación-nariz-almohadillas.png', descriptionBg: 'bg-brand-blue' },
+  { icon: paintBrush, title: t.items[8][0], description: t.items[8][1], image: '/images/servicios/cepillado.png', descriptionBg: 'bg-brand-pink' },
 ];
 
 const packs = [
-  { title: 'Pack Baño Mensual', description: 'Baño completo, secado, cepillado y corte de uñas con precio bonificado por tu fidelidad.', className: 'border-[#1f6f6f] bg-[linear-gradient(135deg,#1f6f6f_0%,#37aaaa_48%,#8ed6d6_100%)] text-white shadow-[10px_10px_0_rgba(81,44,30,0.2)]', iconClassName: 'bg-brand-yellow text-brand-brown', textClassName: 'text-white/85', labelClassName: 'bg-brand-yellow text-brand-brown', logoClassName: 'brightness-0 invert' },
-  { title: 'Pack Cepillado Mensual', description: 'Cepillado anticaída, eliminación de nudos, hidratación de nariz y almohadillas a un precio especial.', className: 'border-[#d19a00] bg-brand-yellow text-brand-brown shadow-[10px_10px_0_rgba(55,170,170,0.24)]', iconClassName: 'bg-brand-teal text-white', textClassName: 'text-brand-brown/75', labelClassName: 'bg-brand-teal text-white', logoClassName: 'brightness-0 [filter:brightness(0)_saturate(100%)_invert(17%)_sepia(27%)_saturate(1197%)_hue-rotate(337deg)_brightness(95%)_contrast(91%)]' },
+  { title: t.packs[0][0], description: t.packs[0][1], className: 'border-[#1f6f6f] bg-[linear-gradient(135deg,#1f6f6f_0%,#37aaaa_48%,#8ed6d6_100%)] text-white shadow-[10px_10px_0_rgba(81,44,30,0.2)]', iconClassName: 'bg-brand-yellow text-brand-brown', textClassName: 'text-white/85', labelClassName: 'bg-brand-yellow text-brand-brown', logoClassName: 'brightness-0 invert' },
+  { title: t.packs[1][0], description: t.packs[1][1], className: 'border-[#d19a00] bg-brand-yellow text-brand-brown shadow-[10px_10px_0_rgba(55,170,170,0.24)]', iconClassName: 'bg-brand-teal text-white', textClassName: 'text-brand-brown/75', labelClassName: 'bg-brand-teal text-white', logoClassName: 'brightness-0 [filter:brightness(0)_saturate(100%)_invert(17%)_sepia(27%)_saturate(1197%)_hue-rotate(337deg)_brightness(95%)_contrast(91%)]' },
 ];
 ---
 
@@ -40,13 +41,13 @@ const packs = [
   <div class="relative max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal">
       <span class="section-kicker">
-        Nuestros servicios
+        {t.kicker}
       </span>
       <h2 class="font-display text-4xl font-black leading-none tracking-[-0.04em] text-brand-ink sm:text-6xl">
-        Todo lo que tu mascota necesita
+        {t.title}
       </h2>
       <p class="mt-5 text-lg font-semibold text-brand-ink/65">
-        En Cap i Cua ofrecemos un trato personalizado y profesional para que tu compañero salga feliz y radiante.
+        {t.intro}
       </p>
     </div>
 
@@ -85,13 +86,13 @@ const packs = [
     <div class="mt-20 reveal">
       <div class="text-center mb-10">
         <span class="section-kicker">
-          Packs de ahorro
+          {t.packsKicker}
         </span>
         <h3 class="font-display text-3xl font-black tracking-[-0.04em] text-brand-ink sm:text-5xl">
-          Ahorra con nuestros bonos mensuales
+          {t.packsTitle}
         </h3>
         <p class="mx-auto mt-5 max-w-3xl text-lg font-semibold leading-relaxed text-brand-ink/65">
-          Bonos de peluquería canina y felina en Esplugues para mantener el baño, el cepillado y el cuidado básico de tu mascota al día con un precio más cómodo y adaptado a tu mascota.
+          {t.packsIntro}
         </p>
       </div>
       <div class="grid gap-5 sm:grid-cols-2">
@@ -110,7 +111,7 @@ const packs = [
                   ></span>
                 </div>
                 <span class={`rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.16em] ${pack.labelClassName}`}>
-                  Pregunta en tienda
+                  {t.askStore}
                 </span>
               </div>
               <h3 class="mb-3 font-display text-3xl leading-none tracking-[-0.04em]">
@@ -140,7 +141,7 @@ const packs = [
           class="h-7 w-7 shrink-0 bg-[#B06267] transition-transform duration-300 ease-out group-hover:scale-125"
           style="mask: url('/images/bullhorn-solid-full.svg') center / contain no-repeat; -webkit-mask: url('/images/bullhorn-solid-full.svg') center / contain no-repeat;"
         ></span>
-        <span class="origin-left transition-transform duration-300 ease-out group-hover:scale-[1.03]"><strong>Importante:</strong> Precios a consultar según la raza, tamaño, el tipo de pelo y el estado del manto.</span>
+        <span class="origin-left transition-transform duration-300 ease-out group-hover:scale-[1.03]"><strong>{t.important}</strong> {t.priceNote}</span>
       </div>
     </div>
   </div>
