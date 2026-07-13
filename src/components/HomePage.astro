@@ -222,7 +222,7 @@ const whatsappUrl = 'https://wa.me/34688956540';
     <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between gap-4">
         <div class="flex items-center gap-2 sm:gap-3">
-          <a href={t.logoHref} class="flex items-center gap-2.5 group rounded-full px-3 py-1.5">
+          <a href={t.logoHref} class="flex items-center gap-2.5 group rounded-full py-1.5">
             <img src="/images/cap_i_cua-h-logo.svg" alt="Cap i Cua" class="h-8 sm:h-10 w-auto max-w-[8rem] sm:max-w-none group-hover:scale-105 transition-transform" />
           </a>
           <a href={t.switchHref} hreflang={locale === 'ca' ? 'es' : 'ca'} aria-label={t.switchLabel} data-language-switch class="group relative inline-grid h-10 grid-cols-2 items-center overflow-hidden rounded-full bg-white/70 p-1 text-[0.68rem] font-black uppercase tracking-[0.1em] text-brand-ink shadow-lg shadow-brand-teal/25 backdrop-blur transition-colors duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-teal sm:text-xs">
@@ -298,7 +298,7 @@ const whatsappUrl = 'https://wa.me/34688956540';
         </div>
       </div>
     </div>
-    <div class="bg-[#1f110c]"><div class="mx-auto flex max-w-[76rem] flex-col gap-4 px-4 py-6 text-sm text-brand-paper/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><p class="text-left">&copy; {new Date().getFullYear()} Cap i Cua Pet Store. {t.footer.rights}</p><div class="flex flex-wrap gap-4 text-left sm:justify-end sm:text-right"><a href={t.footer.legalHref} target="_blank" rel="noopener noreferrer" class="text-brand-paper transition-colors hover:text-brand-yellow">{t.footer.legal}</a><a href={t.footer.privacyHref} target="_blank" rel="noopener noreferrer" class="text-brand-paper transition-colors hover:text-brand-yellow">{t.footer.privacy}</a></div></div></div>
+    <div class="bg-[#1f110c]"><div class="mx-auto flex max-w-[76rem] flex-col gap-4 px-4 py-6 text-sm text-brand-paper/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8"><p class="text-left">&copy; {new Date().getFullYear()} Cap i Cua Pet Store. {t.footer.rights}</p><div class="flex flex-wrap gap-4 text-left sm:justify-end sm:text-right"><a href={t.footer.legalHref} target="_blank" rel="noopener noreferrer" class="footer-legal-link text-brand-paper transition-colors hover:text-brand-yellow">{t.footer.legal}</a><a href={t.footer.privacyHref} target="_blank" rel="noopener noreferrer" class="footer-legal-link text-brand-paper transition-colors hover:text-brand-yellow">{t.footer.privacy}</a></div></div></div>
   </footer>
 
   <script>
@@ -372,5 +372,14 @@ const whatsappUrl = 'https://wa.me/34688956540';
     [data-menu-toggle][aria-expanded='true'] [data-menu-line='bottom'] { transform: translateY(-5px) rotate(-45deg); }
     .mobile-menu-link::before, .mobile-menu-link::after { background: radial-gradient(transparent, rgba(255, 255, 255, 0.94)); }
     .mobile-menu-link:hover::before, .mobile-menu-link:hover::after { opacity: 0.96; }
+    .footer-legal-link {
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      background-size: 0 1px;
+      text-decoration: none;
+      transition: background-size 0.25s ease, color 0.25s ease;
+    }
+    .footer-legal-link:hover { background-size: 100% 1px; }
   </style>
 </Layout>

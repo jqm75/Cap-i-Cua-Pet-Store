@@ -12,7 +12,7 @@ const { t } = Astro.props;
   </div>
   <div class="absolute inset-0 bg-[url('/images/cap-i-cua_bg-huellas.webp')] bg-[length:120%_auto] bg-center bg-fixed opacity-40"></div>
 
-  <div class="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="relative z-20 mx-auto max-w-[76rem] px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal">
       <span class="section-kicker">
         {t.kicker}
@@ -27,26 +27,8 @@ const { t } = Astro.props;
 
     <div class="grid overflow-hidden rounded-[2.5rem] bg-brand-brown text-white shadow-2xl shadow-brand-ink/25 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:rounded-[4rem] reveal">
       <div class="p-7 sm:p-10 md:p-12 lg:p-16">
-        <div class="mb-10 space-y-6">
-          <div class="flex items-center gap-5 sm:gap-6">
-            <img src="/images/location-dot-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all hover:[filter:brightness(0)_saturate(100%)_invert(58%)_sepia(64%)_saturate(415%)_hue-rotate(131deg)_brightness(91%)_contrast(86%)]" alt="" />
-            <p class="text-sm font-semibold text-white/75">
-              Mestre Joan Corrales, 33, local. 08950 Esplugues de Llobregat, Barcelona
-            </p>
-          </div>
-
-          <div class="group flex items-center gap-5 sm:gap-6">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-              <img src="/images/whatsapp-brands-solid-full.svg" class="h-7 w-7 shrink-0 brightness-0 invert transition-all group-hover:[filter:brightness(0)_saturate(100%)_invert(58%)_sepia(64%)_saturate(415%)_hue-rotate(131deg)_brightness(91%)_contrast(86%)]" alt="" />
-            </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-xl font-semibold tracking-widest text-brand-yellow transition-colors hover:text-brand-teal">
-              +34 688 956 540
-            </a>
-          </div>
-        </div>
-
-        <div class="mb-6 rounded-[1.75rem] border border-white/10 bg-white/10 p-5 text-sm font-semibold text-white/75 sm:text-base">
-          <p class="mb-3 font-black uppercase tracking-[0.16em] text-brand-yellow">{t.hoursTitle}</p>
+        <div class="mb-6 rounded-[1.75rem] border border-white/20 bg-white/20 p-5 text-sm font-semibold text-white/75 sm:text-base">
+          <p class="mb-3 font-black uppercase text-brand-yellow">{t.hoursTitle}</p>
           <div class="grid gap-3 sm:grid-cols-2">
             <p><span class="text-white">{t.weekdays}</span><br />9:30 h a 13:30 h<br />16:30 h a 20:30 h</p>
             <p><span class="text-white">{t.saturday}</span><br />10 h a 14 h</p>

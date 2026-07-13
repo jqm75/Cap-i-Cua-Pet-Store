@@ -16,6 +16,11 @@ const {
   ogLocale = 'es_ES',
   alternateLanguages = false,
 } = Astro.props;
+
+const cookieLanguage = lang === 'ca' ? 'ca' : 'es';
+const cookiePrivacyUrl = cookieLanguage === 'ca' ? '/ca/politica-privacitat' : '/politica-privacidad';
+const cookieLegalUrl = cookieLanguage === 'ca' ? '/ca/avis-legal' : '/aviso-legal';
+const googleAnalyticsId = import.meta.env.PUBLIC_GA_ID ?? '';
 ---
 
 <!DOCTYPE html>
@@ -39,9 +44,434 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Noto+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body class="font-sans text-brand-ink bg-brand-yellow antialiased">
     <slot />
+    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js" defer></script>
+    <script define:vars={{ cookieLanguage, cookiePrivacyUrl, cookieLegalUrl, googleAnalyticsId }}>
+      const loadGoogleAnalytics = () => {
+        if (!googleAnalyticsId || window.gtag) return;
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function gtag() {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', googleAnalyticsId, { anonymize_ip: true });
+      };
+
+      window.addEventListener('load', () => {
+        if (!window.CookieConsent) return;
+
+        window.CookieConsent.run({
+          mode: 'opt-in',
+          revision: 1,
+          disablePageInteraction: true,
+          cookie: {
+            name: 'capicua_cookie_consent',
+            expiresAfterDays: 182,
+          },
+          guiOptions: {
+            consentModal: {
+              layout: 'cloud inline',
+              position: 'bottom center',
+              equalWeightButtons: true,
+            },
+            preferencesModal: {
+              layout: 'box',
+              equalWeightButtons: true,
+            },
+          },
+          categories: {
+            necessary: {
+              enabled: true,
+              readOnly: true,
+            },
+            analytics: {
+              autoClear: {
+                cookies: [
+                  { name: /^_ga/ },
+                  { name: '_gid' },
+                ],
+              },
+              services: {
+                ga: {
+                  label: 'Google Analytics',
+                  onAccept: loadGoogleAnalytics,
+                },
+              },
+            },
+          },
+          language: {
+            default: cookieLanguage,
+            autoDetect: 'document',
+            translations: {
+              es: {
+                consentModal: {
+                  title: 'Usamos cookies',
+                  description: 'Utilizamos cookies necesarias para que la web funcione y, si nos das permiso, cookies de analítica para entender cómo se usa la página y mejorarla.',
+                  acceptAllBtn: 'Aceptar todo',
+                  acceptNecessaryBtn: 'Rechazar',
+                  showPreferencesBtn: 'Configurar',
+                  footer: `<a href="${cookieLegalUrl}" target="_blank" rel="noopener noreferrer">Aviso legal</a><a href="${cookiePrivacyUrl}" target="_blank" rel="noopener noreferrer">Política de privacidad</a>`,
+                },
+                preferencesModal: {
+                  title: 'Preferencias de cookies',
+                  acceptAllBtn: 'Aceptar todo',
+                  acceptNecessaryBtn: 'Rechazar',
+                  savePreferencesBtn: 'Guardar preferencias',
+                  closeIconLabel: 'Cerrar',
+                  serviceCounterLabel: 'Servicio|Servicios',
+                  sections: [
+                    {
+                      title: 'Tu privacidad',
+                      description: 'Puedes aceptar todas las cookies, rechazarlas o escoger qué categorías permites. Las cookies necesarias siempre están activas porque hacen posible el funcionamiento básico de la web.',
+                    },
+                    {
+                      title: 'Cookies necesarias',
+                      description: 'Son imprescindibles para guardar tu elección de cookies y mantener funciones básicas de la web.',
+                      linkedCategory: 'necessary',
+                    },
+                    {
+                      title: 'Analítica',
+                      description: 'Nos ayudan a medir visitas y uso de la web con Google Analytics. Solo se activan si aceptas esta categoría.',
+                      linkedCategory: 'analytics',
+                      cookieTable: {
+                        headers: { name: 'Cookie', desc: 'Descripción', duration: 'Duración' },
+                        body: [
+                          { name: '_ga', desc: 'Distingue usuarios de forma anónima para estadísticas.', duration: 'Hasta 2 años' },
+                          { name: '_gid', desc: 'Distingue usuarios de forma anónima durante una sesión corta.', duration: '24 horas' },
+                        ],
+                      },
+                    },
+                    {
+                      title: 'Más información',
+                      description: `Puedes consultar la <a href="${cookiePrivacyUrl}" target="_blank" rel="noopener noreferrer">política de privacidad</a> para más detalles.`,
+                    },
+                  ],
+                },
+              },
+              ca: {
+                consentModal: {
+                  title: 'Fem servir cookies',
+                  description: 'Utilitzem cookies necessàries perquè la web funcioni i, si ens dones permís, cookies d’analítica per entendre com s’utilitza la pàgina i millorar-la.',
+                  acceptAllBtn: 'Acceptar-ho tot',
+                  acceptNecessaryBtn: 'Rebutjar',
+                  showPreferencesBtn: 'Configurar',
+                  footer: `<a href="${cookieLegalUrl}" target="_blank" rel="noopener noreferrer">Avís legal</a><a href="${cookiePrivacyUrl}" target="_blank" rel="noopener noreferrer">Política de privacitat</a>`,
+                },
+                preferencesModal: {
+                  title: 'Preferències de cookies',
+                  acceptAllBtn: 'Acceptar-ho tot',
+                  acceptNecessaryBtn: 'Rebutjar',
+                  savePreferencesBtn: 'Desar preferències',
+                  closeIconLabel: 'Tancar',
+                  serviceCounterLabel: 'Servei|Serveis',
+                  sections: [
+                    {
+                      title: 'La teva privacitat',
+                      description: 'Pots acceptar totes les cookies, rebutjar-les o escollir quines categories permets. Les cookies necessàries sempre estan actives perquè fan possible el funcionament bàsic de la web.',
+                    },
+                    {
+                      title: 'Cookies necessàries',
+                      description: 'Són imprescindibles per desar la teva elecció de cookies i mantenir funcions bàsiques de la web.',
+                      linkedCategory: 'necessary',
+                    },
+                    {
+                      title: 'Analítica',
+                      description: 'Ens ajuden a mesurar visites i ús de la web amb Google Analytics. Només s’activen si acceptes aquesta categoria.',
+                      linkedCategory: 'analytics',
+                      cookieTable: {
+                        headers: { name: 'Cookie', desc: 'Descripció', duration: 'Durada' },
+                        body: [
+                          { name: '_ga', desc: 'Distingeix usuaris de manera anònima per a estadístiques.', duration: 'Fins a 2 anys' },
+                          { name: '_gid', desc: 'Distingeix usuaris de manera anònima durant una sessió curta.', duration: '24 hores' },
+                        ],
+                      },
+                    },
+                    {
+                      title: 'Més informació',
+                      description: `Pots consultar la <a href="${cookiePrivacyUrl}" target="_blank" rel="noopener noreferrer">política de privacitat</a> per a més detalls.`,
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        });
+      });
+    </script>
+    <style is:global>
+      #cc-main {
+        --cc-font-family: 'Noto Sans', system-ui, sans-serif;
+        --cc-bg: #f3efed;
+        --cc-primary-color: #123f3d;
+        --cc-secondary-color: rgba(18, 63, 61, 0.72);
+        --cc-btn-primary-bg: #37aaaa;
+        --cc-btn-primary-color: #ffffff;
+        --cc-btn-primary-border-color: #37aaaa;
+        --cc-btn-primary-hover-bg: #512c1e;
+        --cc-btn-primary-hover-color: #fecb2b;
+        --cc-btn-primary-hover-border-color: #512c1e;
+        --cc-btn-secondary-bg: #ffffff;
+        --cc-btn-secondary-color: #123f3d;
+        --cc-btn-secondary-border-color: #ffffff;
+        --cc-btn-secondary-hover-bg: #fecb2b;
+        --cc-btn-secondary-hover-color: #512c1e;
+        --cc-btn-secondary-hover-border-color: #d9a900;
+        --cc-toggle-on-bg: #37aaaa;
+        --cc-toggle-off-bg: rgba(18, 63, 61, 0.22);
+        --cc-toggle-readonly-bg: #37aaaa;
+        --cc-toggle-readonly-knob-icon-color: #37aaaa;
+        --cc-cookie-category-block-bg: rgba(55, 170, 170, 0.12);
+        --cc-cookie-category-block-border: rgba(55, 170, 170, 0.28);
+        --cc-cookie-category-block-hover-bg: rgba(31, 111, 111, 0.16);
+        --cc-cookie-category-block-hover-border: rgba(31, 111, 111, 0.42);
+        --cc-cookie-category-expanded-block-bg: rgba(55, 170, 170, 0.08);
+        --cc-cookie-category-expanded-block-hover-bg: rgba(31, 111, 111, 0.14);
+        --cc-section-border: rgba(81, 44, 30, 0.12);
+        --cc-separator-border-color: rgba(81, 44, 30, 0.12);
+        --cc-modal-border-radius: 1.75rem;
+        --cc-btn-border-radius: 9999px;
+      }
+
+      #cc-main .cm,
+      #cc-main .pm {
+        border: 2px solid rgba(255, 255, 255, 0.72);
+        box-shadow: 12px 12px 0 rgba(81, 44, 30, 0.16), 0 22px 55px rgba(18, 63, 61, 0.16);
+      }
+
+      #cc-main .cm__title,
+      #cc-main .pm__title {
+        font-family: 'Noto Sans', system-ui, sans-serif;
+        font-size: 1.35rem;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        text-shadow: none;
+      }
+
+      #cc-main .pm__title {
+        font-size: 1.5rem;
+      }
+
+      #cc-main .cm__title {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      #cc-main .cm__title::before {
+        content: '';
+        display: inline-block;
+        width: 2.2rem;
+        height: 2.2rem;
+        flex: 0 0 auto;
+        background: url('/images/cookies.svg') center / contain no-repeat;
+      }
+
+      #cc-main .cm__btn,
+      #cc-main .pm__btn {
+        border: 0 !important;
+        box-shadow: 0 10px 22px rgba(55, 170, 170, 0.18);
+        font-weight: 800;
+        transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      #cc-main .cm__btn[data-role='all'],
+      #cc-main .pm__btn[data-role='all'],
+      #cc-main .cm__btn[data-role='save'],
+      #cc-main .pm__btn[data-role='save'],
+      #cc-main .cm__btn[data-role='show'],
+      #cc-main .pm__btn[data-role='show'],
+      #cc-main .cm__btn[data-role='necessary'],
+      #cc-main .pm__btn[data-role='necessary'] {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+      }
+
+      #cc-main .cm__btn[data-role='all'],
+      #cc-main .pm__btn[data-role='all'],
+      #cc-main .pm__btn[data-role='save'] {
+        background: #37aaaa;
+        color: #ffffff;
+      }
+
+      #cc-main .cm__btn[data-role='show'],
+      #cc-main .pm__btn[data-role='show'] {
+        background: #ffffff;
+        color: #123f3d;
+      }
+
+      #cc-main .cm__btn[data-role='necessary'],
+      #cc-main .pm__btn[data-role='necessary'] {
+        background: #cc3738;
+        color: #ffffff;
+      }
+
+      #cc-main .cm__btn[data-role='all']::before,
+      #cc-main .pm__btn[data-role='all']::before,
+      #cc-main .cm__btn[data-role='save']::before,
+      #cc-main .pm__btn[data-role='save']::before,
+      #cc-main .cm__btn[data-role='show']::before,
+      #cc-main .pm__btn[data-role='show']::before,
+      #cc-main .cm__btn[data-role='necessary']::before,
+      #cc-main .pm__btn[data-role='necessary']::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        z-index: 0;
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 9999px;
+        background: #512c1e;
+        transform: translate(-110%, -50%) scale(1);
+        transform-origin: center;
+        transition: transform 0.5s ease;
+      }
+
+      #cc-main .cm__btn > span,
+      #cc-main .pm__btn > span {
+        position: relative;
+        z-index: 1;
+      }
+
+      #cc-main .cm__btn[data-role='all']:hover,
+      #cc-main .pm__btn[data-role='all']:hover,
+      #cc-main .cm__btn[data-role='save']:hover,
+      #cc-main .pm__btn[data-role='save']:hover,
+      #cc-main .cm__btn[data-role='show']:hover,
+      #cc-main .pm__btn[data-role='show']:hover,
+      #cc-main .cm__btn[data-role='necessary']:hover,
+      #cc-main .pm__btn[data-role='necessary']:hover {
+        transform: translateY(-2px);
+      }
+
+      #cc-main .cm__btn[data-role='all']:hover::before,
+      #cc-main .pm__btn[data-role='all']:hover::before,
+      #cc-main .cm__btn[data-role='save']:hover::before,
+      #cc-main .pm__btn[data-role='save']:hover::before,
+      #cc-main .cm__btn[data-role='show']:hover::before,
+      #cc-main .pm__btn[data-role='show']:hover::before,
+      #cc-main .cm__btn[data-role='necessary']:hover::before,
+      #cc-main .pm__btn[data-role='necessary']:hover::before {
+        transform: translate(0, -50%) scale(1.5);
+      }
+
+      #cc-main .cm__btn[data-role='show']::before,
+      #cc-main .pm__btn[data-role='show']::before {
+        background: #fecb2b;
+      }
+
+      #cc-main .cm__btn[data-role='all']:hover,
+      #cc-main .pm__btn[data-role='all']:hover,
+      #cc-main .cm__btn[data-role='save']:hover,
+      #cc-main .pm__btn[data-role='save']:hover,
+      #cc-main .cm__btn[data-role='show']:hover,
+      #cc-main .pm__btn[data-role='show']:hover,
+      #cc-main .cm__btn[data-role='necessary']:hover,
+      #cc-main .pm__btn[data-role='necessary']:hover {
+        color: #fecb2b;
+      }
+
+      #cc-main .cm__btn[data-role='show']:hover {
+        color: #512c1e;
+      }
+
+      #cc-main .pm__btn[data-role='all']::before,
+      #cc-main .pm__btn[data-role='save']::before,
+      #cc-main .pm__btn[data-role='necessary']::before {
+        display: none;
+      }
+
+      #cc-main .pm__btn[data-role='all'],
+      #cc-main .pm__btn[data-role='save'],
+      #cc-main .pm__btn[data-role='necessary'] {
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 0 100%;
+        transition: color 0.3s ease, background-color 0.3s ease, background-size 0.5s ease, transform 0.3s ease;
+      }
+
+      #cc-main .pm__btn[data-role='all'],
+      #cc-main .pm__btn[data-role='save'] {
+        background-color: #37aaaa;
+        background-image: linear-gradient(#512c1e, #512c1e);
+      }
+
+      #cc-main .pm__btn[data-role='necessary'] {
+        background-color: #cc3738;
+        background-image: linear-gradient(#512c1e, #512c1e);
+      }
+
+      #cc-main .pm__btn[data-role='all']:hover,
+      #cc-main .pm__btn[data-role='save']:hover,
+      #cc-main .pm__btn[data-role='necessary']:hover {
+        background-size: 100% 100%;
+        color: #fecb2b;
+      }
+
+      #cc-main .cm__footer {
+        background: #fecb2b;
+        color: #512c1e;
+        font-weight: 800;
+        box-shadow: 4px 4px 0 rgba(81, 44, 30, 0.18);
+      }
+
+      #cc-main .cm__footer a {
+        color: #512c1e;
+        font-weight: 800;
+      }
+
+      #cc-main .pm__section--toggle,
+      #cc-main .pm__section--toggle .pm__section-title,
+      #cc-main .pm__section--toggle .pm__section-desc-wrapper,
+      #cc-main .pm__section:not(.pm__section--toggle) {
+        border-radius: 1.25rem;
+      }
+
+      #cc-main .pm__section:not(:first-child):hover,
+      #cc-main .pm__section--toggle .pm__section-title:hover,
+      #cc-main .pm__service:hover,
+      #cc-main .pm__table-tr:hover {
+        background-color: rgba(31, 111, 111, 0.16);
+        border-color: rgba(31, 111, 111, 0.42);
+      }
+
+      #cc-main .pm__badge {
+        display: none;
+      }
+
+      #cc-main .pm__section--expandable .pm__section-title {
+        padding-left: 3.2em;
+        padding-right: 3.5em;
+      }
+
+      #cc-main .pm__section-arrow {
+        left: 1.1rem;
+        right: auto;
+      }
+
+      #cc-main .pm__section--toggle.is-expanded .pm__section-title {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      #cc-main .pm__section--toggle.is-expanded .pm__section-desc-wrapper {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 1.25rem;
+        border-bottom-right-radius: 1.25rem;
+      }
+    </style>
   </body>
 </html>
